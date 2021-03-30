@@ -1,0 +1,15 @@
+#bagPage-div {
+  display: flex;
+  flex-direction: column;
+  background-color: burlywood;
+}
+
+#mainBag-div {
+  display: flex;
+  background-color: aqua;
+}
+
+#pay-div {
+  background-color: darkgoldenrod;
+  flex-basis: 20%;
+}

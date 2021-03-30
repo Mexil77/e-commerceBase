@@ -1,0 +1,14 @@
+#contentOptionInfo-div {
+  display: flex;
+  width: 95%;
+  background-color: turquoise;
+  flex-direction: column;
+}
+
+.addField-button {
+  width: 20%;
+}
+
+.submit-button {
+  width: 30%;
+}

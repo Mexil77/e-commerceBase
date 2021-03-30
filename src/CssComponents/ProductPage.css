@@ -1,0 +1,91 @@
+#productPage-div {
+  display: flex;
+  background-color: aquamarine;
+  flex-direction: column;
+  align-items: center;
+}
+
+#productPrincipalView-div {
+  display: flex;
+  background-color: cadetblue;
+  width: 95%;
+  justify-content: space-between;
+}
+
+#imagesList-div {
+  background-color: chocolate;
+  width: 10%;
+}
+
+.miniImage-ul {
+  padding: 0;
+  align-content: center;
+  background-color: aqua;
+}
+
+.miniImage-li {
+  list-style: none;
+}
+
+li img {
+  width: 100%;
+}
+
+#principalImage-div {
+  display: flex;
+  width: 30%;
+  background-color: chartreuse;
+  align-items: center;
+}
+
+#principalImage {
+  width: 100%;
+}
+
+#panelProduct-div {
+  background-color: blueviolet;
+  width: 50%;
+}
+
+#longDescriptionProduct-div {
+  display: flex;
+  width: 95%;
+  background-color: violet;
+}
+
+#recomendedProducts-div {
+  width: 95%;
+}
+
+#questionsProduct-div {
+  width: 95%;
+  background-color: yellowgreen;
+}
+
+#comentsProduct-div {
+  width: 95%;
+  background-color: green;
+}
+
+#modalWishList-div {
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  position: absolute;
+  width: 50%;
+  height: 400px;
+  overflow: scroll;
+}
+
+#headerModalWishList-div {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+}
+
+#bodyModalWishList-div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

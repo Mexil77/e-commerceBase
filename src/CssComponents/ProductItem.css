@@ -1,0 +1,12 @@
+#productItem-div {
+  display: flex;
+  background-color: darkgrey;
+  width: 150px;
+  flex-direction: column;
+  border: 1px;
+  align-items: center;
+}
+
+#productItem-img {
+  width: 80%;
+}

@@ -1,0 +1,6 @@
+#asignDirectionPage-div {
+  display: flex;
+  background-color: yellowgreen;
+  flex-direction: column;
+  align-items: center;
+}

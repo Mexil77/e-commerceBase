@@ -1,0 +1,6 @@
+#logInPage-div {
+  display: flex;
+  background-color: coral;
+  flex-direction: column;
+  align-items: center;
+}

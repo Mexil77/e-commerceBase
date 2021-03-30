@@ -1,0 +1,9 @@
+#gridProductResult-div {
+  display: grid;
+  background-color: coral;
+  width: 80%;
+  padding: 10px 0px;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}

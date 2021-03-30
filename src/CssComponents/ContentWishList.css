@@ -1,0 +1,72 @@
+#contentWishList-div {
+  display: flex;
+  flex-direction: column;
+  background-color: yellowgreen;
+  width: 95%;
+}
+
+.list-div {
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  text-align: center;
+  border-radius: 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  align-items: center;
+}
+
+.listHeder-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.listHeder-button {
+  border-radius: 30%;
+  color: blue;
+  margin-right: 10px;
+}
+
+#formNewList-div {
+  display: flex;
+  justify-content: center;
+}
+
+.listItems-div {
+  background-color: violet;
+  width: 80%;
+}
+
+.listItem-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: tomato;
+  border-radius: 20px;
+  margin: 5px 0;
+}
+
+.mainPhoto-div {
+  width: 20%;
+}
+.mainPhoto-div img {
+  width: 80%;
+  border-radius: 30%;
+}
+.productName-h6 {
+  width: 10%;
+  background-color: yellow;
+}
+.productDescription-p {
+  width: 50%;
+  background-color: greenyellow;
+}
+.productPrice-h6 {
+  width: 10%;
+  background-color: whitesmoke;
+}
+
+.productDrop-button {
+  width: 10%;
+}

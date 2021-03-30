@@ -1,0 +1,84 @@
+#contentOptionOrders-div {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  background-color: turquoise;
+}
+
+.rowOrder-div {
+  display: flex;
+  background-color: blueviolet;
+  width: 100%;
+  height: 150px;
+  border: 1px outset;
+  margin: 5px 0;
+}
+
+.idProduct-div {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 10%;
+  align-items: center;
+}
+
+.idProduct-box {
+  background-color: aqua;
+  width: 50%;
+  height: 50%;
+}
+
+.idProduct-text {
+  width: 4em;
+  word-wrap: break-word;
+  background-color: springgreen;
+}
+
+.listProducts-div {
+  display: flex;
+  flex-direction: column;
+  background-color: yellowgreen;
+  flex-basis: 70%;
+}
+
+.listProductItem-div {
+  display: flex;
+  background-color: thistle;
+  height: 100%;
+  border: 1px solid;
+  margin: 3px 0;
+}
+
+.listProductItemName {
+  background-color: chocolate;
+  height: 100%;
+  flex-basis: 70%;
+}
+.listProductItemCuantity {
+  background-color: white;
+  height: 100%;
+  flex-basis: 15%;
+  text-align: center;
+}
+.listProductItemPrice {
+  background-color: violet;
+  height: 100%;
+  flex-basis: 15%;
+  text-align: center;
+}
+
+.generalInfo-div {
+  display: flex;
+  flex-direction: column;
+  background-color: springgreen;
+  flex-basis: 20%;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.dateOrder {
+  background-color: yellow;
+}
+
+.totalPayOrder {
+  background-color: slategrey;
+}

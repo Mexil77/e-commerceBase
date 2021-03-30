@@ -1,0 +1,5 @@
+#carouselProducts-div {
+  display: flex;
+  background-color: cornflowerblue;
+  justify-content: space-evenly;
+}

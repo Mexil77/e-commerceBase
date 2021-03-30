@@ -1,0 +1,20 @@
+#productFilter {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background-color: blueviolet;
+  width: 20%;
+}
+
+p {
+  margin: 0;
+}
+
+#productFilter li {
+  list-style: none;
+  cursor: pointer;
+}
+
+#productFilter li:hover {
+  color: darkgoldenrod;
+}
