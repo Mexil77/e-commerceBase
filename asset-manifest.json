@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Mexil77/e-commerceBase/static/css/main.5be9a75f.chunk.css",
-    "main.js": "/Mexil77/e-commerceBase/static/js/main.4cc5574a.chunk.js",
-    "main.js.map": "/Mexil77/e-commerceBase/static/js/main.4cc5574a.chunk.js.map",
+    "main.js": "/Mexil77/e-commerceBase/static/js/main.1b6936b8.chunk.js",
+    "main.js.map": "/Mexil77/e-commerceBase/static/js/main.1b6936b8.chunk.js.map",
     "runtime-main.js": "/Mexil77/e-commerceBase/static/js/runtime-main.5640a6cf.js",
     "runtime-main.js.map": "/Mexil77/e-commerceBase/static/js/runtime-main.5640a6cf.js.map",
     "static/css/2.1496e877.chunk.css": "/Mexil77/e-commerceBase/static/css/2.1496e877.chunk.css",
@@ -40,6 +40,6 @@
     "static/css/2.1496e877.chunk.css",
     "static/js/2.8a4495ff.chunk.js",
     "static/css/main.5be9a75f.chunk.css",
-    "static/js/main.4cc5574a.chunk.js"
+    "static/js/main.1b6936b8.chunk.js"
   ]
 }
