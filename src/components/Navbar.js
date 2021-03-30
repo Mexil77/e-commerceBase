@@ -23,6 +23,7 @@ export default class Navbar extends Component {
         user: false,
       });
     }
+    console.log(`${process.env.REACT_APP_WEB_URI}/logIn`);
   }
 
   closeSession = () => {
@@ -48,7 +49,10 @@ export default class Navbar extends Component {
         <nav id="nav">
           <ul>
             <li className="navbar-item">
-              <Link className="navbar-link" to="/">
+              <Link
+                className="navbar-link"
+                to={`${process.env.REACT_APP_WEB_URI}/`}
+              >
                 Home
               </Link>
             </li>
@@ -56,7 +60,7 @@ export default class Navbar extends Component {
               <li className="navbar-item">
                 <Link
                   className="navbar-link"
-                  to="/"
+                  to={`${process.env.REACT_APP_WEB_URI}/`}
                   onClick={this.closeSession}
                 >
                   LogOut
@@ -64,26 +68,42 @@ export default class Navbar extends Component {
               </li>
             ) : (
               <li className="navbar-item">
-                <Link className="navbar-link" to="/logIn">
+                <Link
+                  className="navbar-link"
+                  to={`${process.env.REACT_APP_WEB_URI}/logIn`}
+                >
                   LogIn
                 </Link>
               </li>
             )}
             <li className="navbar-item">
-              <Link className="navbar-link" to="/productFilter">
+              <Link
+                className="navbar-link"
+                to={`${process.env.REACT_APP_WEB_URI}/productFilter`}
+              >
                 Filter
               </Link>
             </li>
             <li className="navbar-item">
-              <Link className="navbar-link" to="/bag">
+              <Link
+                className="navbar-link"
+                to={`${process.env.REACT_APP_WEB_URI}/bag`}
+              >
                 Bag
               </Link>
             </li>
-            <li className="navbar-item">
-              <Link className="navbar-link" to="/user">
-                User
-              </Link>
-            </li>
+            {this.state.user ? (
+              <li className="navbar-item">
+                <Link
+                  className="navbar-link"
+                  to={`${process.env.REACT_APP_WEB_URI}/user`}
+                >
+                  User
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </nav>
       </div>

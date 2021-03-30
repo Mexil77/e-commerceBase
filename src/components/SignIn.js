@@ -29,7 +29,7 @@ export default class SignIn extends Component {
     if (!user.data.signIn) {
     } else {
       this.props.createCookie(user.data.signIn);
-      window.location.href = "/";
+      window.location.href = `${process.env.REACT_APP_WEB_URI}/`;
     }
   };
 

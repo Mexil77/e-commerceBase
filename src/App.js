@@ -20,14 +20,39 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <Route path="/" exact component={Home}></Route>
-        <Route path="/logIn" component={LogInPage}></Route>
-        <Route path="/productFilter" component={ProductFilterPage}></Route>
-        <Route path="/product/:id" component={ProductPage}></Route>
-        <Route path="/bag" component={BagPage}></Route>
-        <Route path="/paySteps" component={PayStepsPage}></Route>
-        <Route path="/success" component={SuccessPage}></Route>
-        <Route path="/user" component={UserPage}></Route>
+        <Route
+          path={`${process.env.REACT_APP_WEB_URI}/`}
+          exact
+          component={Home}
+        ></Route>
+        <Route
+          path={`${process.env.REACT_APP_WEB_URI}/logIn`}
+          component={LogInPage}
+        ></Route>
+        <Route
+          path={`${process.env.REACT_APP_WEB_URI}/productFilter`}
+          component={ProductFilterPage}
+        ></Route>
+        <Route
+          path={`${process.env.REACT_APP_WEB_URI}/product/:id`}
+          component={ProductPage}
+        ></Route>
+        <Route
+          path={`${process.env.REACT_APP_WEB_URI}/bag`}
+          component={BagPage}
+        ></Route>
+        <Route
+          path={`${process.env.REACT_APP_WEB_URI}/paySteps`}
+          component={PayStepsPage}
+        ></Route>
+        <Route
+          path={`${process.env.REACT_APP_WEB_URI}/success`}
+          component={SuccessPage}
+        ></Route>
+        <Route
+          path={`${process.env.REACT_APP_WEB_URI}/user`}
+          component={UserPage}
+        ></Route>
       </Router>
     </div>
   );
