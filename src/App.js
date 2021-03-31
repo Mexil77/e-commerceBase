@@ -21,16 +21,16 @@ function App() {
       <Router>
         <Navbar />
         <Route
-          path={`${process.env.PUBLIC_URL}/`}
+          path={`${process.env.REACT_APP_WEB_URI}/`}
           exact
           component={Home}
         ></Route>
         <Route
-          path={`${process.env.PUBLIC_URL}/logIn`}
+          path={`${process.env.REACT_APP_WEB_URI}/logIn`}
           component={LogInPage}
         ></Route>
         <Route
-          path={`${process.env.PUBLIC_URL}/productFilter`}
+          path={`${process.env.REACT_APP_WEB_URI}/productFilter`}
           component={ProductFilterPage}
         ></Route>
         <Route
