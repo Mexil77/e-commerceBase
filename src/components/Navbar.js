@@ -48,10 +48,7 @@ export default class Navbar extends Component {
         <nav id="nav">
           <ul>
             <li className="navbar-item">
-              <Link
-                className="navbar-link"
-                to={`${process.env.REACT_APP_WEB_URI}/`}
-              >
+              <Link className="navbar-link" to={`/`}>
                 Home
               </Link>
             </li>
@@ -59,7 +56,7 @@ export default class Navbar extends Component {
               <li className="navbar-item">
                 <Link
                   className="navbar-link"
-                  to={`${process.env.PUBLIC_URL}/`}
+                  to={`/`}
                   onClick={this.closeSession}
                 >
                   LogOut
@@ -67,36 +64,24 @@ export default class Navbar extends Component {
               </li>
             ) : (
               <li className="navbar-item">
-                <Link
-                  className="navbar-link"
-                  to={`${process.env.REACT_APP_WEB_URI}/logIn`}
-                >
+                <Link className="navbar-link" to={`/logIn`}>
                   LogIn
                 </Link>
               </li>
             )}
             <li className="navbar-item">
-              <Link
-                className="navbar-link"
-                to={`${process.env.REACT_APP_WEB_URI}/productFilter`}
-              >
+              <Link className="navbar-link" to={`/productFilter`}>
                 Filter
               </Link>
             </li>
             <li className="navbar-item">
-              <Link
-                className="navbar-link"
-                to={`${process.env.REACT_APP_WEB_URI}/bag`}
-              >
+              <Link className="navbar-link" to={`/bag`}>
                 Bag
               </Link>
             </li>
             {this.state.user ? (
               <li className="navbar-item">
-                <Link
-                  className="navbar-link"
-                  to={`${process.env.REACT_APP_WEB_URI}/user`}
-                >
+                <Link className="navbar-link" to={`/user`}>
                   User
                 </Link>
               </li>

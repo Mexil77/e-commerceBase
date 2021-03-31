@@ -33,7 +33,8 @@ export default class BagPage extends Component {
         bagList: bagList.data.bagList,
       });
     } else {
-      window.location.href = `${process.env.REACT_APP_WEB_URI}/logIn`;
+      //window.location.href = `/logIn`;
+      this.props.history.push("logIn");
     }
   };
 
