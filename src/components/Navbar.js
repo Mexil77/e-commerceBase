@@ -23,7 +23,6 @@ export default class Navbar extends Component {
         user: false,
       });
     }
-    console.log(`${process.env.REACT_APP_WEB_URI}/logIn`);
   }
 
   closeSession = () => {
@@ -60,7 +59,7 @@ export default class Navbar extends Component {
               <li className="navbar-item">
                 <Link
                   className="navbar-link"
-                  to={`${process.env.REACT_APP_WEB_URI}/`}
+                  to={`${process.env.PUBLIC_URL}/`}
                   onClick={this.closeSession}
                 >
                   LogOut
