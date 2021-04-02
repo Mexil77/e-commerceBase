@@ -49,7 +49,7 @@ export default class ContentWishList extends Component {
     const idWishList = await this.createWishList();
     this.addWishListToUser(idWishList);
     if (this.state.idProduct === "") {
-      window.location.reload();
+      this.props.history.go(0);
     } else {
       this.addProductToWishList(idWishList);
     }
@@ -73,7 +73,7 @@ export default class ContentWishList extends Component {
       `${process.env.REACT_APP_URI_PREFIX_USE}users/wishList`,
       queryAddWishList
     );
-    window.location.reload();
+    //window.location.reload();
   };
 
   addProductToWishList = async (idWishList) => {

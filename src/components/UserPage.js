@@ -106,6 +106,7 @@ export default class UserPage extends Component {
             <ContentWishList
               idProduct={""}
               wishLists={this.state.user[0].wishLists}
+              history={this.props.history}
             />
           ) : (
             <h1>Bienvenido a tu perfil</h1>
