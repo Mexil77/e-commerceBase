@@ -100,6 +100,7 @@ export default class ProductPage extends Component {
               <ContentWishList
                 idProduct={this.state.product._id}
                 wishLists={this.state.wishLists}
+                getUser={this.getUser}
               />
             </div>
           </div>

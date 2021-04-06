@@ -34,6 +34,10 @@ export default class UserPage extends Component {
     });
   };
 
+  imprimeState = () => {
+    console.log(this.state);
+  };
+
   chageContentComponent = (component) => {
     this.setState({
       constentComponent: component,
@@ -106,7 +110,7 @@ export default class UserPage extends Component {
             <ContentWishList
               idProduct={""}
               wishLists={this.state.user[0].wishLists}
-              history={this.props.history}
+              getUser={this.getUser}
             />
           ) : (
             <h1>Bienvenido a tu perfil</h1>

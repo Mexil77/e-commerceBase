@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -7,56 +7,48 @@ import Images from "../assets/images";
 
 const cookies = new Cookies();
 
-export default class ContentWishList extends Component {
-  state = {
-    newListCliced: false,
-    name: "",
-    wishListSelected: "",
-    idProduct: "",
-    wishLists: [],
+const ContentWishList = (props) => {
+  const [newListClicked, setNewListClicked] = useState(false);
+  const [data, setData] = useState({ name: "" });
+  const [wishListSelected, setWishListSelected] = useState("");
+  const [idProduct, setIdProduct] = useState("");
+  const [wishLists, setWishLists] = useState([]);
+
+  useEffect(() => {
+    setStartValues();
+  });
+
+  const setStartValues = () => {
+    setIdProduct(props.idProduct);
+    setWishLists(props.wishLists);
   };
 
-  componentDidMount() {
-    this.setStartValues();
-  }
-
-  setStartValues = () => {
-    this.setState({
-      idProduct: this.props.idProduct,
-      wishLists: this.props.wishLists,
-    });
+  const clickNewList = () => {
+    setWishListSelected("");
+    setNewListClicked(!newListClicked);
   };
 
-  imprimeState = () => {
-    console.log(this.state);
-  };
-
-  clickNewList = () => {
-    this.setState((state) => ({
-      newListCliced: !state.newListCliced,
-      wishListSelected: "",
-    }));
-  };
-
-  onChange = (e) => {
-    this.setState({
+  const onChange = (e) => {
+    setData({
       [e.target.name]: e.target.value,
     });
   };
 
-  handleNewList = async (e) => {
+  const handleNewList = async (e) => {
     e.preventDefault();
-    const idWishList = await this.createWishList();
-    this.addWishListToUser(idWishList);
-    if (this.state.idProduct === "") {
-      this.props.history.go(0);
+    const idWishList = await createWishList();
+    await addWishListToUser(idWishList);
+    if (idProduct === "") {
+      clickNewList();
+      setData({ name: "" });
+      props.getUser();
     } else {
-      this.addProductToWishList(idWishList);
+      addProductToWishList(idWishList);
     }
   };
 
-  createWishList = async () => {
-    const queryWishList = { name: this.state.name };
+  const createWishList = async () => {
+    const queryWishList = { name: data.name };
     const idWishList = await axios.post(
       `${process.env.REACT_APP_URI_PREFIX_USE}wishLists/`,
       queryWishList
@@ -64,7 +56,7 @@ export default class ContentWishList extends Component {
     return idWishList.data.idWishList;
   };
 
-  addWishListToUser = async (idWishList) => {
+  const addWishListToUser = async (idWishList) => {
     const queryAddWishList = {
       idUser: cookies.get("id"),
       idWishList: idWishList,
@@ -73,45 +65,29 @@ export default class ContentWishList extends Component {
       `${process.env.REACT_APP_URI_PREFIX_USE}users/wishList`,
       queryAddWishList
     );
-    //window.location.reload();
   };
 
-  addProductToWishList = async (idWishList) => {
+  const addProductToWishList = async (idWishList) => {
     const queryAddProduct = {
       idWishList: idWishList,
-      idProduct: this.state.idProduct,
+      idProduct: idProduct,
     };
     await axios.put(
       `${process.env.REACT_APP_URI_PREFIX_USE}wishLists/product`,
       queryAddProduct
     );
-    window.location.reload();
+    props.getUser();
   };
 
-  clickSelectWishList = (idWishList) => {
-    this.setState((state) => ({
-      wishListSelected: state.wishListSelected === idWishList ? "" : idWishList,
-    }));
+  const clickSelectWishList = (idWishList) => {
+    setWishListSelected(wishListSelected === idWishList ? "" : idWishList);
   };
 
-  idProductExistInList = async (idWishList) => {
-    const queryToFind = {
-      idWishList: idWishList,
-      idProduct: this.state.idProduct,
-    };
-    const finded = await axios.post(
-      `${process.env.REACT_APP_URI_PREFIX_USE}wishLists/product`,
-      queryToFind
-    );
-    console.log(finded.data.finded);
-    return finded.data.finded;
-  };
-
-  alertHaveProduct = () => {
+  const alertHaveProduct = () => {
     alert("Ya tienes este producto en esta wishList");
   };
 
-  dropWishList = async (idWishList) => {
+  const dropWishList = async (idWishList) => {
     const queryDropWishList = {
       idUser: cookies.get("id"),
       idWishList: idWishList,
@@ -124,91 +100,88 @@ export default class ContentWishList extends Component {
     await axios.delete(`${process.env.REACT_APP_URI_PREFIX_USE}wishLists/`, {
       params: queryDeletewishList,
     });
-    window.location.reload();
+    props.getUser();
   };
 
-  render() {
-    return (
-      <div id="contentWishList-div">
-        <div className="list-div">
-          {this.state.newListCliced ? (
-            <div id="formNewList-div">
-              <form action="" onSubmit={this.handleNewList}>
-                <input
-                  type="text"
-                  name="name"
-                  value={this.state.name}
-                  placeholder="Nombre de la nueva lista"
-                  onChange={this.onChange}
-                />
-                <button type="submit">Crear y Agregar</button>
-              </form>
-              <button onClick={this.clickNewList}>X</button>
-            </div>
-          ) : (
-            <h1 onClick={this.clickNewList}>Nueva Lista</h1>
-          )}
-        </div>
-        {this.state.wishLists.map((wishList) => {
-          return (
-            <div
-              key={wishList._id}
-              className="list-div"
-              style={
-                wishList.productList.find(
-                  (product) => product._id === this.state.idProduct
-                )
-                  ? { backgroundColor: "red" }
-                  : {}
-              }
-            >
-              <div className="listHeder-div">
-                <h1
-                  onClick={
-                    this.state.idProduct === ""
-                      ? () => this.clickSelectWishList(wishList._id)
-                      : wishList.productList.find(
-                          (product) => product._id === this.state.idProduct
-                        )
-                      ? this.alertHaveProduct
-                      : () => this.addProductToWishList(wishList._id)
-                  }
+  return (
+    <div id="contentWishList-div">
+      <div className="list-div">
+        {newListClicked ? (
+          <div id="formNewList-div">
+            <form action="" onSubmit={handleNewList}>
+              <input
+                type="text"
+                name="name"
+                value={data.name}
+                placeholder="Nombre de la nueva lista"
+                onChange={onChange}
+              />
+              <button type="submit">Crear y Agregar</button>
+            </form>
+            <button onClick={clickNewList}>X</button>
+          </div>
+        ) : (
+          <h1 onClick={clickNewList}>Nueva Lista</h1>
+        )}
+      </div>
+      {wishLists.map((wishList) => {
+        return (
+          <div
+            key={wishList._id}
+            className="list-div"
+            style={
+              wishList.productList.find((product) => product._id === idProduct)
+                ? { backgroundColor: "red" }
+                : {}
+            }
+          >
+            <div className="listHeder-div">
+              <h1
+                onClick={
+                  idProduct === ""
+                    ? () => clickSelectWishList(wishList._id)
+                    : wishList.productList.find(
+                        (product) => product._id === idProduct
+                      )
+                    ? alertHaveProduct
+                    : () => addProductToWishList(wishList._id)
+                }
+              >
+                {wishList.name}
+              </h1>
+              {idProduct === "" ? (
+                <button
+                  className="listHeder-button"
+                  onClick={() => dropWishList(wishList._id)}
                 >
-                  {wishList.name}
-                </h1>
-                {this.state.idProduct === "" ? (
-                  <button
-                    className="listHeder-button"
-                    onClick={() => this.dropWishList(wishList._id)}
-                  >
-                    Eliminar
-                  </button>
-                ) : (
-                  ""
-                )}
-              </div>
-              {this.state.wishListSelected === wishList._id ? (
-                <div className="listItems-div">
-                  {wishList.productList.map((product) => {
-                    return (
-                      <ItemList
-                        key={product._id}
-                        product={product}
-                        idWishList={wishList._id}
-                      />
-                    );
-                  })}
-                </div>
+                  Eliminar
+                </button>
               ) : (
                 ""
               )}
             </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
+            {wishListSelected === wishList._id ? (
+              <div className="listItems-div">
+                {wishList.productList.map((product) => {
+                  return (
+                    <ItemList
+                      key={product._id}
+                      product={product}
+                      idWishList={wishList._id}
+                      getUser={props.getUser}
+                    />
+                  );
+                })}
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 const ItemList = (props) => {
   const [mainPhoto, setMainPhoto] = useState("");
@@ -229,7 +202,7 @@ const ItemList = (props) => {
       `${process.env.REACT_APP_URI_PREFIX_USE}wishLists/dropProduct`,
       queryToDrop
     );
-    window.location.reload();
+    props.getUser();
   };
 
   return (
@@ -249,3 +222,5 @@ const ItemList = (props) => {
     </div>
   );
 };
+
+export default ContentWishList;
