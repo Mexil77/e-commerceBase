@@ -4,6 +4,9 @@ import Cookies from "universal-cookie";
 
 import "./ContentDirections.css";
 
+import FormAddDirection from "./FormAddDirection";
+import CardDirection from "./CardDirection";
+
 const cookies = new Cookies();
 
 const ContentDirections = (props) => {
@@ -164,128 +167,6 @@ const ContentDirections = (props) => {
           />
         );
       })}
-    </div>
-  );
-};
-
-const FormAddDirection = (props) => {
-  return (
-    <div id="formAddDirection-div">
-      <h1>Form</h1>
-      <form
-        id="formAddDirection-form"
-        action=""
-        onSubmit={
-          props.addDirection ? props.handleSubmitAdd : props.handleSubmitEdith
-        }
-      >
-        <div className="formAddDirection-colum">
-          <label htmlFor="fullName">Nombre:</label>
-          <input
-            type="text"
-            name="fullName"
-            value={props.state.fullName}
-            placeholder="Juan Paredes Rios"
-            onChange={props.onChange}
-          />
-          <label htmlFor="streetNumber">Calle y Numero:</label>
-          <input
-            type="text"
-            name="streetNumber"
-            value={props.state.streetNumber}
-            placeholder="Ej. San Martin #35 int 3"
-            onChange={props.onChange}
-          />
-          <label htmlFor="CP">Codigo Postal:</label>
-          <input
-            type="number"
-            name="CP"
-            value={props.state.CP !== 0 ? props.state.CP : ""}
-            placeholder="Ej. 24536"
-            onChange={props.onChange}
-          />
-          <label htmlFor="state">Estado:</label>
-          <input
-            type="text"
-            name="state"
-            value={props.state.state}
-            placeholder="Ej. Michoacan"
-            onChange={props.onChange}
-          />
-        </div>
-        <div className="formAddDirection-colum">
-          <label htmlFor="city">Ciudad/Municipio:</label>
-          <input
-            type="text"
-            name="city"
-            value={props.state.city}
-            placeholder="Ej. Morelia"
-            onChange={props.onChange}
-          />
-          <label htmlFor="suburb">Colonia:</label>
-          <input
-            type="text"
-            name="suburb"
-            value={props.state.suburb}
-            placeholder="Ej. Chapultepec Norte"
-            onChange={props.onChange}
-          />
-          <label htmlFor="phoneNumber">Telefono:</label>
-          <input
-            type="number"
-            name="phoneNumber"
-            value={props.state.phoneNumber !== 0 ? props.state.phoneNumber : ""}
-            placeholder="4433568421"
-            onChange={props.onChange}
-          />
-          <label htmlFor="instructions">Instrucciones:</label>
-          <input
-            type="text"
-            name="instructions"
-            value={props.state.instructions}
-            placeholder="Entre las Calles avasolo y Av. Solidaridad"
-            onChange={props.onChange}
-          />
-        </div>
-        <button type="submit">Add</button>
-      </form>
-    </div>
-  );
-};
-
-const CardDirection = (props) => {
-  const dropDirection = async (idDirection) => {
-    const queryToDelete = { idDirection: idDirection };
-    const queryToDrop = { idUser: cookies.get("id"), idDirection: idDirection };
-    await axios.delete(`${process.env.REACT_APP_URI_PREFIX_USE}directions/`, {
-      params: queryToDelete,
-    });
-    await axios.put(
-      `${process.env.REACT_APP_URI_PREFIX_USE}users/dropDirection`,
-      queryToDrop
-    );
-    props.getUser();
-  };
-
-  return (
-    <div className="cardDirection-div">
-      <h6>{props.direction.fullName}</h6>
-      <h6>{props.direction.phoneNumber}</h6>
-      <p>{`${props.direction.streetNumber} Col. ${props.direction.suburb} C.P.${props.direction.CP}`}</p>
-      {props.from === "UserInfo" ? (
-        <div id="cardDirectionButtons-div">
-          <button onClick={() => props.formDisplay(props.direction)}>
-            Editar
-          </button>
-          <button onClick={() => dropDirection(props.direction._id)}>
-            Eliminar
-          </button>
-        </div>
-      ) : (
-        <button onClick={() => props.selectDirection(props.direction)}>
-          A esta Direccion
-        </button>
-      )}
     </div>
   );
 };

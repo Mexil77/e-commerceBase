@@ -1,0 +1,20 @@
+#formAddDirection-div {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  background-color: chocolate;
+  align-items: center;
+}
+
+#formAddDirection-form {
+  display: flex;
+  width: 90%;
+  background-color: aqua;
+}
+
+.formAddDirection-colum {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  background-color: aquamarine;
+}
