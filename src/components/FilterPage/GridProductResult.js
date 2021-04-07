@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 
-import "../CssComponents/GridProductResult.css";
+import "./GridProductResult.css";
 
 //import ProductItem from "./ProductItem";
 

@@ -9,7 +9,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-import "../CssComponents/ContentPayForms.css";
+import "./ContentPayForms.css";
 
 const cookies = new Cookies();
 const stripePromise = loadStripe(

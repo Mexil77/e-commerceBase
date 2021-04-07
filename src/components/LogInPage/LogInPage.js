@@ -5,7 +5,7 @@ import LogIn from "./LogIn";
 import SignIn from "./SignIn";
 import ForgotPassword from "./ForgotPassword";
 
-import "../CssComponents/LogInPage.css";
+import "./LogInPage.css";
 
 const cookies = new Cookies();
 

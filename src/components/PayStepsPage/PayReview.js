@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-import "../CssComponents/PayReview.css";
+import "./PayReview.css";
 
-import Bag from "./Bag";
+import Bag from "../BagPage/Bag";
 
 const cookies = new Cookies();
 

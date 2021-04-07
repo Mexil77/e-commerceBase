@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../CssComponents/ContentOrders.css";
+import "./ContentOrders.css";
 
 export default class ContentOrders extends Component {
   state = {

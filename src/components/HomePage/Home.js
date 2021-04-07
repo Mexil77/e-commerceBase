@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import "../CssComponents/Home.css";
+import "./Home.css";
 
-import CarouselProducts from "./CarouselProducts";
+import CarouselProducts from "../Extras/CarouselProducts";
 
 export default class Home extends Component {
   render() {

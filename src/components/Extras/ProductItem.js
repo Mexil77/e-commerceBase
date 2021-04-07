@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import "../CssComponents/ProductItem.css";
-import Images from "../assets/images";
+import "./ProductItem.css";
+import Images from "../../assets/images";
 
 export default class ProductItem extends Component {
   state = {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-import "../CssComponents/ContentDirections.css";
+import "./ContentDirections.css";
 
 const cookies = new Cookies();
 

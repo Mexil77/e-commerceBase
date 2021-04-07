@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../CssComponents/ProductFilterPage.css";
+import "./ProductFilterPage.css";
 
 import GridProductResult from "./GridProductResult";
 import ProductFilter from "./ProductFilter";

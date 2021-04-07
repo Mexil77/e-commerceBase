@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import "../CssComponents/CarouselProducts.css";
+import "./CarouselProducts.css";
 
 import ProductItem from "./ProductItem";
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import "../CssComponents/LogIn.css";
+import "./LogIn.css";
 
 export default class LogIn extends Component {
   state = {

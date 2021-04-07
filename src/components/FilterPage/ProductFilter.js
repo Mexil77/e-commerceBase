@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../CssComponents/ProductFilter.css";
+import "./ProductFilter.css";
 
 export default class ProductFilter extends Component {
   render() {

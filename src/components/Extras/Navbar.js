@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
 
-import Logo from "../assets/Img/logo_prueba.png";
+import Logo from "../../assets/Img/logo_prueba.png";
 
-import "../CssComponents/Navbar.css";
+import "./Navbar.css";
 
 const cookies = new Cookies();
 

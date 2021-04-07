@@ -3,10 +3,10 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 
 import "react-dropdown/style.css";
-import "../CssComponents/BagPage.css";
+import "./BagPage.css";
 
 import Bag from "./Bag";
-import CarouselProducts from "./CarouselProducts";
+import CarouselProducts from "../Extras/CarouselProducts";
 
 const cookies = new Cookies();
 

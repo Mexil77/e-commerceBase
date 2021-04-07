@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-import "../CssComponents/ContentWishList.css";
-import Images from "../assets/images";
+import "./ContentWishList.css";
+
+import ItemWishList from "./ItemWishList";
 
 const cookies = new Cookies();
 
@@ -164,7 +165,7 @@ const ContentWishList = (props) => {
               <div className="listItems-div">
                 {wishList.productList.map((product) => {
                   return (
-                    <ItemList
+                    <ItemWishList
                       key={product._id}
                       product={product}
                       idWishList={wishList._id}
@@ -179,46 +180,6 @@ const ContentWishList = (props) => {
           </div>
         );
       })}
-    </div>
-  );
-};
-
-const ItemList = (props) => {
-  const [mainPhoto, setMainPhoto] = useState("");
-
-  useEffect(() => {
-    setStateMainPhoto(props.product._id);
-  });
-
-  const setStateMainPhoto = (idProduct) => {
-    const mainPhoto = Images.find((product) => product.id === idProduct)
-      .photos[0];
-    setMainPhoto(mainPhoto);
-  };
-
-  const dropListItem = async (idProduct) => {
-    const queryToDrop = { idWishList: props.idWishList, idProduct: idProduct };
-    await axios.put(
-      `${process.env.REACT_APP_URI_PREFIX_USE}wishLists/dropProduct`,
-      queryToDrop
-    );
-    props.getUser();
-  };
-
-  return (
-    <div key={props.product._id} className="listItem-div">
-      <div className="mainPhoto-div">
-        <img src={mainPhoto} alt="" />
-      </div>
-      <h6 className="productName-h6">{props.product.name}</h6>
-      <p className="productDescription-p">{props.product.description}</p>
-      <h6 className="productPrice-h6">{`$${props.product.price}`}</h6>
-      <button
-        className="productDrop-button"
-        onClick={() => dropListItem(props.product._id)}
-      >
-        Eliminar
-      </button>
     </div>
   );
 };

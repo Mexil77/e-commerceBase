@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-import "../CssComponents/UserPage.css";
-import DefaultImage from "../assets/Img/defaultUserImage.png";
+import "./UserPage.css";
+import DefaultImage from "../../assets/Img/defaultUserImage.png";
 
 import ContentInfo from "./ContentInfo";
 import ContentOrders from "./ContentOrders";
@@ -92,7 +92,7 @@ export default class UserPage extends Component {
         </div>
         <div id="userPageRight-div">
           {this.state.constentComponent === 0 ? (
-            <ContentInfo user={this.state.user[0]} />
+            <ContentInfo user={this.state.user[0]} getUser={this.getUser} />
           ) : this.state.constentComponent === 1 ? (
             <ContentOrders orders={this.state.user[0].orders} />
           ) : this.state.constentComponent === 2 ? (

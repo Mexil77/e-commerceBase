@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-import "../CssComponents/PayStepsPage.css";
+import "./PayStepsPage.css";
 
-import ContentDirections from "./ContentDirections";
-import ContentPayforms from "./ContentPayForms";
+import ContentDirections from "../UserPage/ContentDirections";
+import ContentPayforms from "../UserPage/ContentPayForms";
 import PayReview from "./PayReview";
 
 const cookies = new Cookies();

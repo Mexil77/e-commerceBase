@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-import "../CssComponents/BagItem.css";
-import Images from "../assets/images";
+import "./BagItem.css";
+import Images from "../../assets/images";
 
 const cookies = new Cookies();
 

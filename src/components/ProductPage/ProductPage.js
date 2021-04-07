@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-import "../CssComponents/ProductPage.css";
-import Images from "../assets/images";
+import "./ProductPage.css";
+import Images from "../../assets/images";
 
-import CarouselProducts from "./CarouselProducts";
-import ContentWishList from "./ContentWishList";
+import CarouselProducts from "../Extras/CarouselProducts";
+import ContentWishList from "../UserPage/ContentWishList";
 
 const cookies = new Cookies();
 

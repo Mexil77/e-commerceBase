@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../CssComponents/BagListItems.css";
+import "./BagListItems.css";
 
 import BagItem from "./BagItem";
 

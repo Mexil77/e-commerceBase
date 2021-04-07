@@ -1,0 +1,32 @@
+.itemWishList-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: tomato;
+  border-radius: 20px;
+  margin: 5px 0;
+}
+
+.mainPhoto-div {
+  width: 20%;
+}
+.mainPhoto-div img {
+  width: 80%;
+  border-radius: 30%;
+}
+.productName-h6 {
+  width: 10%;
+  background-color: yellow;
+}
+.productDescription-p {
+  width: 50%;
+  background-color: greenyellow;
+}
+.productPrice-h6 {
+  width: 10%;
+  background-color: whitesmoke;
+}
+
+.productDrop-button {
+  width: 10%;
+}

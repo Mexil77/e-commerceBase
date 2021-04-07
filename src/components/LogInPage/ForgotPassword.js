@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../CssComponents/ForgotPassword.css";
+import "./ForgotPassword.css";
 
 export default class ForgotPassword extends Component {
   state = {
