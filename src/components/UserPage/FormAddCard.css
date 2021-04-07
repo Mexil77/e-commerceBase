@@ -1,0 +1,21 @@
+#formAddCard-div {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  background-color: chocolate;
+  align-items: center;
+}
+
+#formAddCard-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background-color: aqua;
+}
+
+.formAddCard-colum {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  background-color: aquamarine;
+}

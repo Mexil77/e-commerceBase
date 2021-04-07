@@ -1,0 +1,8 @@
+.cardCard-div {
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  width: 80%;
+  height: 150px;
+  word-wrap: break-word;
+}

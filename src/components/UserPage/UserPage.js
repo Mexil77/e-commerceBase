@@ -106,6 +106,7 @@ export default class UserPage extends Component {
               cards={this.state.user[0].cards}
               stripeId={this.state.user[0].stripeId}
               from={"UserInfo"}
+              getUser={this.getUser}
             />
           ) : this.state.constentComponent === 4 ? (
             <ContentWishList
