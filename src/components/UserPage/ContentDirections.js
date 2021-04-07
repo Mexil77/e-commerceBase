@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -6,10 +6,8 @@ import "./ContentDirections.css";
 
 const cookies = new Cookies();
 
-export default class ContentDirections extends Component {
-  state = {
-    directions: [],
-    formIsOpen: false,
+const ContentDirections = (props) => {
+  const [data, setData] = useState({
     fullName: "",
     streetNumber: "",
     CP: 0,
@@ -18,35 +16,34 @@ export default class ContentDirections extends Component {
     suburb: "",
     phoneNumber: 0,
     instructions: "",
-    addDirection: true,
-    idDirectionedith: "",
+  });
+  const [directions, setDirections] = useState([]);
+  const [formIsOpen, setFormIsOpen] = useState(false);
+  const [addDirection, setAddDirection] = useState(true);
+  const [idDirectionEdith, setIdDirectionEdith] = useState("");
+
+  useEffect(() => {
+    setDirectionsToState();
+  });
+
+  const setDirectionsToState = () => {
+    setDirections(props.directions);
   };
 
-  componentDidMount() {
-    this.setDirections();
-  }
-
-  setDirections = () => {
-    this.setState({
-      directions: this.props.directions,
-    });
-  };
-
-  onChange = (e) => {
-    this.setState({
+  const onChange = (e) => {
+    setData({
+      ...data,
       [e.target.name]: e.target.value,
     });
   };
 
-  formDisplay = (direction) => {
+  const formDisplay = (direction) => {
     if (Object.keys(direction).length === 0) {
-      this.setState((state) => ({
-        formIsOpen: !state.formIsOpen,
-        addDirection: true,
-      }));
+      setFormIsOpen(!formIsOpen);
+      setAddDirection(true);
     } else {
-      this.setState((state) => ({
-        formIsOpen: !state.formIsOpen,
+      setFormIsOpen(!formIsOpen);
+      setData({
         fullName: direction.fullName,
         streetNumber: direction.streetNumber,
         CP: direction.CP,
@@ -55,28 +52,40 @@ export default class ContentDirections extends Component {
         suburb: direction.suburb,
         phoneNumber: direction.phoneNumber,
         instructions: direction.instructions,
-        addDirection: false,
-        idDirectionedith: direction._id,
-      }));
+      });
+      setAddDirection(false);
+      setIdDirectionEdith(direction._id);
     }
   };
 
-  handleSubmitAdd = async (e) => {
+  const handleSubmitAdd = async (e) => {
     e.preventDefault();
-    const idDirection = await this.addDirection();
-    this.addDirectionToUser(idDirection);
+    const idDirection = await addDirectionToState();
+    await addDirectionToUser(idDirection);
+    setFormIsOpen(false);
+    setData({
+      fullName: "",
+      streetNumber: "",
+      CP: 0,
+      state: "",
+      city: "",
+      suburb: "",
+      phoneNumber: 0,
+      instructions: "",
+    });
+    props.getUser();
   };
 
-  addDirection = async () => {
+  const addDirectionToState = async () => {
     const directionToAdd = {
-      fullName: this.state.fullName,
-      streetNumber: this.state.streetNumber,
-      CP: this.state.CP,
-      state: this.state.state,
-      city: this.state.city,
-      suburb: this.state.suburb,
-      phoneNumber: this.state.phoneNumber,
-      instructions: this.state.instructions,
+      fullName: data.fullName,
+      streetNumber: data.streetNumber,
+      CP: data.CP,
+      state: data.state,
+      city: data.city,
+      suburb: data.suburb,
+      phoneNumber: data.phoneNumber,
+      instructions: data.instructions,
     };
     const idDirection = await axios.post(
       `${process.env.REACT_APP_URI_PREFIX_USE}directions/`,
@@ -85,69 +94,79 @@ export default class ContentDirections extends Component {
     return idDirection.data.idDirection;
   };
 
-  addDirectionToUser = async (idDirection) => {
+  const addDirectionToUser = async (idDirection) => {
     const queryToAdd = { idUser: cookies.get("id"), idDirection: idDirection };
     await axios.put(
       `${process.env.REACT_APP_URI_PREFIX_USE}users/direction`,
       queryToAdd
     );
-    window.location.reload();
   };
 
-  handleSubmitEdith = async (e) => {
+  const handleSubmitEdith = async (e) => {
     e.preventDefault();
     const queryToEdit = {
-      idDirection: this.state.idDirectionedith,
-      fullName: this.state.fullName,
-      streetNumber: this.state.streetNumber,
-      CP: this.state.CP,
-      state: this.state.state,
-      city: this.state.city,
-      suburb: this.state.suburb,
-      phoneNumber: this.state.phoneNumber,
-      instructions: this.state.instructions,
+      idDirection: idDirectionEdith,
+      fullName: data.fullName,
+      streetNumber: data.streetNumber,
+      CP: data.CP,
+      state: data.state,
+      city: data.city,
+      suburb: data.suburb,
+      phoneNumber: data.phoneNumber,
+      instructions: data.instructions,
     };
     await axios.put(
       `${process.env.REACT_APP_URI_PREFIX_USE}directions/`,
       queryToEdit
     );
-    window.location.reload();
+    setFormIsOpen(false);
+    setData({
+      fullName: "",
+      streetNumber: "",
+      CP: 0,
+      state: "",
+      city: "",
+      suburb: "",
+      phoneNumber: 0,
+      instructions: "",
+    });
+    props.getUser();
   };
 
-  render() {
-    return this.state.formIsOpen ? (
-      <FormAddDirection
-        formDisplay={() => this.formDisplay({})}
-        state={this.state}
-        onChange={this.onChange}
-        handleSubmitAdd={this.handleSubmitAdd}
-        handleSubmitEdith={this.handleSubmitEdith}
-      />
-    ) : (
-      <div id="contentOptionDirections-div">
-        <div
-          id="cardAddDirection"
-          className="cardDirection-div"
-          onClick={() => this.formDisplay({})}
-        >
-          <h3>Agrega Direccion</h3>
-          <h1>+</h1>
-        </div>
-        {this.state.directions.map((direction) => {
-          return (
-            <CardDirection
-              key={direction._id}
-              direction={direction}
-              formDisplay={this.formDisplay}
-              from={this.props.from}
-              selectDirection={this.props.selectDirection}
-            />
-          );
-        })}
+  return formIsOpen ? (
+    <FormAddDirection
+      formDisplay={() => formDisplay({})}
+      state={data}
+      addDirection={addDirection}
+      onChange={onChange}
+      handleSubmitAdd={handleSubmitAdd}
+      handleSubmitEdith={handleSubmitEdith}
+    />
+  ) : (
+    <div id="contentOptionDirections-div">
+      <div
+        id="cardAddDirection"
+        className="cardDirection-div"
+        onClick={() => formDisplay({})}
+      >
+        <h3>Agrega Direccion</h3>
+        <h1>+</h1>
       </div>
-    );
-  }
-}
+      {directions.map((direction) => {
+        return (
+          <CardDirection
+            key={direction._id}
+            direction={direction}
+            formDisplay={formDisplay}
+            from={props.from}
+            selectDirection={props.selectDirection}
+            getUser={props.getUser}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 const FormAddDirection = (props) => {
   return (
@@ -157,9 +176,7 @@ const FormAddDirection = (props) => {
         id="formAddDirection-form"
         action=""
         onSubmit={
-          props.state.addDirection
-            ? props.handleSubmitAdd
-            : props.handleSubmitEdith
+          props.addDirection ? props.handleSubmitAdd : props.handleSubmitEdith
         }
       >
         <div className="formAddDirection-colum">
@@ -247,7 +264,7 @@ const CardDirection = (props) => {
       `${process.env.REACT_APP_URI_PREFIX_USE}users/dropDirection`,
       queryToDrop
     );
-    window.location.reload();
+    props.getUser();
   };
 
   return (
@@ -272,3 +289,5 @@ const CardDirection = (props) => {
     </div>
   );
 };
+
+export default ContentDirections;

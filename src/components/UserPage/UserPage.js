@@ -99,6 +99,7 @@ export default class UserPage extends Component {
             <ContentDirections
               directions={this.state.user[0].directions}
               from={"UserInfo"}
+              getUser={this.getUser}
             />
           ) : this.state.constentComponent === 3 ? (
             <ContentPayForms
