@@ -1,0 +1,7 @@
+#payForm-form {
+  display: flex;
+  flex-direction: column;
+  background-color: greenyellow;
+  width: 100%;
+  align-items: center;
+}

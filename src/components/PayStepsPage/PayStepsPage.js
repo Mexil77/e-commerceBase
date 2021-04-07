@@ -47,13 +47,10 @@ export default class PayStepsPage extends Component {
   };
 
   selectCard = (card) => {
-    this.setState(
-      {
-        cardSelected: card,
-        stepPay: 3,
-      },
-      this.imprimeState
-    );
+    this.setState({
+      cardSelected: card,
+      stepPay: 3,
+    });
   };
 
   imprimeState = () => {
@@ -92,6 +89,7 @@ export default class PayStepsPage extends Component {
             card={this.state.cardSelected}
             direction={this.state.directionSelected}
             stripeId={this.state.stripeId}
+            history={this.props.history}
           />
         )}
       </div>

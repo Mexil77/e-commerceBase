@@ -33,7 +33,6 @@ export default class BagPage extends Component {
         bagList: bagList.data.bagList,
       });
     } else {
-      //window.location.href = `/logIn`;
       this.props.history.push("logIn");
     }
   };
@@ -58,7 +57,8 @@ export default class BagPage extends Component {
       `${process.env.REACT_APP_URI_PREFIX_USE}users/bagUpdate`,
       queryBagList
     );
-    window.location.href = "/paySteps";
+    this.props.history.push("paySteps");
+    //window.location.href = "/paySteps";
   };
 
   modifyCuantity = (operation, product) => {
