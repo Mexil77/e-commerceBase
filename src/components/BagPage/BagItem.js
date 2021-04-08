@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -7,96 +7,79 @@ import Images from "../../assets/images";
 
 const cookies = new Cookies();
 
-export default class BagItem extends Component {
-  state = {
-    cuantity: 1,
-    product: {},
-    mainPhoto: "",
-  };
+const BagItem = (props) => {
+  const [product, setProduct] = useState({});
+  const [mainPhoto, setMainPhoto] = useState("");
+  useEffect(() => {
+    findProduct(props.idProduct);
+    setMainPhotoToState(props.idProduct);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  componentDidMount() {
-    this.findProduct(this.props.idProduct);
-    this.setMainPhoto(this.props.idProduct);
-  }
-
-  findProduct = async (idProduct) => {
+  const findProduct = async (idProduct) => {
     const queryProduct = { idProduct };
     const product = await axios.post(
       `${process.env.REACT_APP_URI_PREFIX_USE}products/findProduct`,
       queryProduct
     );
-    this.props.addTotalAmount(product.data.price * this.props.cuantity);
-    this.setState({
-      cuantity: this.props.cuantity,
-      product: product.data,
-    });
+    props.addTotalAmount(product.data.price * props.cuantity);
+    setProduct(product.data);
   };
 
-  setMainPhoto = (idProduct) => {
+  const setMainPhotoToState = (idProduct) => {
     const mainPhoto = Images.find((product) => product.id === idProduct)
       .photos[0];
-    this.setState({
-      mainPhoto,
-    });
+    setMainPhoto(mainPhoto);
   };
 
-  deleteBagItem = async (idProduct) => {
+  const deleteBagItem = async (idProduct) => {
+    props.substractTotalAmount(product.price * props.cuantity);
     const deleteProduct = { idUser: cookies.get("id"), idProduct };
     await axios.delete(`${process.env.REACT_APP_URI_PREFIX_USE}users/bag`, {
       params: deleteProduct,
     });
-    window.location.href = "/bag";
+    props.getUserBag();
   };
 
-  render() {
-    return (
-      <li id="bagItem-li">
-        <ul id="dataItem-ul">
-          <li id="dataItem-li">
-            <img src={this.state.mainPhoto} alt="" />
-          </li>
-          <li id="dataItem-li">{this.state.product.description}</li>
-          <li id="dataItem-li">
-            <div id="gridNumberItems-div">
-              <div id="numberAndButons-div">
-                <label className="labelCuantify" htmlFor="cantidad">
-                  {this.props.cuantity}
-                </label>
-                <div id="buttonsPlusMinius-div">
-                  <button
-                    onClick={() =>
-                      this.props.modifyCuantity("add", this.state.product)
-                    }
-                  >
-                    +
-                  </button>
-                  <button
-                    onClick={() =>
-                      this.props.modifyCuantity(
-                        "substraction",
-                        this.state.product
-                      )
-                    }
-                  >
-                    -
-                  </button>
-                </div>
-              </div>
+  const modifyCuantity = async (typeModify, product) => {
+    await props.modifyCuantity(typeModify, product);
+    await props.updateBagUser();
+  };
 
-              <button
-                onClick={() => this.deleteBagItem(this.state.product._id)}
-              >
-                Eliminar
-              </button>
+  return (
+    <li id="bagItem-li">
+      <ul id="dataItem-ul">
+        <li id="dataItem-li">
+          <img src={mainPhoto} alt="" />
+        </li>
+        <li id="dataItem-li">{product.description}</li>
+        <li id="dataItem-li">
+          <div id="gridNumberItems-div">
+            <div id="numberAndButons-div">
+              <label className="labelCuantify" htmlFor="cantidad">
+                {props.cuantity}
+              </label>
+              <div id="buttonsPlusMinius-div">
+                <button onClick={() => modifyCuantity("add", product)}>
+                  +
+                </button>
+                <button onClick={() => modifyCuantity("substraction", product)}>
+                  -
+                </button>
+              </div>
             </div>
-          </li>
-          <li id="dataItem-li">
-            <label className="labelTotal" htmlFor="labelTotal">
-              {`$${this.state.product.price * this.props.cuantity}`}
-            </label>
-          </li>
-        </ul>
-      </li>
-    );
-  }
-}
+
+            <button onClick={() => deleteBagItem(product._id)}>Eliminar</button>
+          </div>
+        </li>
+        <li id="dataItem-li">
+          <label className="labelTotal" htmlFor="labelTotal">
+            {`$${product.price * props.cuantity}`}
+          </label>
+        </li>
+      </ul>
+    </li>
+  );
+};
+
+export default BagItem;

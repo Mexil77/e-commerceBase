@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -57,8 +58,8 @@ export default class BagPage extends Component {
       `${process.env.REACT_APP_URI_PREFIX_USE}users/bagUpdate`,
       queryBagList
     );
-    this.props.history.push("paySteps");
-    //window.location.href = "/paySteps";
+    console.log("update");
+    //this.props.history.push("paySteps");
   };
 
   modifyCuantity = (operation, product) => {
@@ -110,12 +111,16 @@ export default class BagPage extends Component {
               addTotalAmount={this.addTotalAmount}
               substractTotalAmount={this.substractTotalAmount}
               modifyCuantity={this.modifyCuantity}
+              getUserBag={this.getUserBag}
+              updateBagUser={this.updateBagUser}
             />
           </div>
           <div id="pay-div">
             <h1>Pay button</h1>
             <h2>{`$${this.state.totalAmount}`}</h2>
-            <button onClick={this.updateBagUser}>Proceder al pago</button>
+            <Link to="/paySteps">
+              <button>Proceder al pago</button>
+            </Link>
           </div>
         </div>
         <CarouselProducts

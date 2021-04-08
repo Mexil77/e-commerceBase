@@ -1,26 +1,26 @@
-import React, { Component } from "react";
-
 import "./BagListItems.css";
 
 import BagItem from "./BagItem";
 
-export default class BagListItems extends Component {
-  render() {
-    return (
-      <ul id="bagListItems-ul">
-        {this.props.bagList.map((item) => {
-          return (
-            <BagItem
-              key={item.idProduct}
-              idProduct={item.idProduct}
-              cuantity={item.cuantity}
-              addTotalAmount={this.props.addTotalAmount}
-              substractTotalAmount={this.props.substractTotalAmount}
-              modifyCuantity={this.props.modifyCuantity}
-            />
-          );
-        })}
-      </ul>
-    );
-  }
-}
+const BagListItems = (props) => {
+  return (
+    <ul id="bagListItems-ul">
+      {props.bagList.map((item) => {
+        return (
+          <BagItem
+            key={item.idProduct}
+            idProduct={item.idProduct}
+            cuantity={item.cuantity}
+            addTotalAmount={props.addTotalAmount}
+            substractTotalAmount={props.substractTotalAmount}
+            modifyCuantity={props.modifyCuantity}
+            getUserBag={props.getUserBag}
+            updateBagUser={props.updateBagUser}
+          />
+        );
+      })}
+    </ul>
+  );
+};
+
+export default BagListItems;
