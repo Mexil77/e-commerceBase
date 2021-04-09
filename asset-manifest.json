@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.abf5223a.chunk.css",
-    "main.js": "/static/js/main.1c767ae0.chunk.js",
-    "main.js.map": "/static/js/main.1c767ae0.chunk.js.map",
+    "main.css": "/static/css/main.44f6197b.chunk.css",
+    "main.js": "/static/js/main.3c390b86.chunk.js",
+    "main.js.map": "/static/js/main.3c390b86.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c0a6e06a.js",
     "runtime-main.js.map": "/static/js/runtime-main.c0a6e06a.js.map",
-    "static/css/2.1496e877.chunk.css": "/static/css/2.1496e877.chunk.css",
+    "static/css/2.1bb49e50.chunk.css": "/static/css/2.1bb49e50.chunk.css",
     "static/js/2.15199af9.chunk.js": "/static/js/2.15199af9.chunk.js",
     "static/js/2.15199af9.chunk.js.map": "/static/js/2.15199af9.chunk.js.map",
     "static/js/3.fe92766b.chunk.js": "/static/js/3.fe92766b.chunk.js",
     "static/js/3.fe92766b.chunk.js.map": "/static/js/3.fe92766b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.1496e877.chunk.css.map": "/static/css/2.1496e877.chunk.css.map",
-    "static/css/main.abf5223a.chunk.css.map": "/static/css/main.abf5223a.chunk.css.map",
+    "static/css/2.1bb49e50.chunk.css.map": "/static/css/2.1bb49e50.chunk.css.map",
+    "static/css/main.44f6197b.chunk.css.map": "/static/css/main.44f6197b.chunk.css.map",
     "static/js/2.15199af9.chunk.js.LICENSE.txt": "/static/js/2.15199af9.chunk.js.LICENSE.txt",
     "static/media/apple.643c93ce.jpg": "/static/media/apple.643c93ce.jpg",
     "static/media/audi.a3736eae.jpg": "/static/media/audi.a3736eae.jpg",
@@ -37,9 +37,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c0a6e06a.js",
-    "static/css/2.1496e877.chunk.css",
+    "static/css/2.1bb49e50.chunk.css",
     "static/js/2.15199af9.chunk.js",
-    "static/css/main.abf5223a.chunk.css",
-    "static/js/main.1c767ae0.chunk.js"
+    "static/css/main.44f6197b.chunk.css",
+    "static/js/main.3c390b86.chunk.js"
   ]
 }
