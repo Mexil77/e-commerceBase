@@ -1,12 +1,15 @@
 #productItem-div {
-  display: flex;
-  background-color: darkgrey;
-  width: 150px;
-  flex-direction: column;
-  border: 1px;
-  align-items: center;
+  @apply flex bg-gray-200 flex-col border-2 border-red-800 items-center h-full rounded-lg w-full;
 }
 
 #productItem-img {
-  width: 80%;
+  @apply w-full md:w-4/5 h-full rounded-lg;
+}
+
+#productItem-title {
+  @apply invisible absolute md:static md:visible;
+}
+
+#productItem-price {
+  @apply invisible absolute md:static md:visible;
 }

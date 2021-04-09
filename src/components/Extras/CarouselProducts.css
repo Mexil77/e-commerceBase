@@ -1,5 +1,7 @@
 #carouselProducts-div {
-  display: flex;
-  background-color: cornflowerblue;
-  justify-content: space-evenly;
+  @apply flex justify-evenly w-full;
+}
+
+.linkCarouselProduct-Link {
+  @apply w-1/5 px-1 md:px-5;
 }

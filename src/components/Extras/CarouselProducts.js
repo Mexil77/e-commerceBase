@@ -11,7 +11,12 @@ export default class CarouselProducts extends Component {
       <div id="carouselProducts-div">
         {this.props.idProducts.map((id) => {
           return (
-            <Link key={id} to={`/product/${id}`}>
+            <Link
+              key={id}
+              className="linkCarouselProduct-Link"
+              to={`/product/${id}`}
+              style={{ textDecoration: "none" }}
+            >
               <ProductItem idProduct={id} />
             </Link>
           );
