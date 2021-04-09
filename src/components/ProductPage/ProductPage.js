@@ -130,26 +130,33 @@ export default class ProductPage extends Component {
             <h1>{this.state.product.name}</h1>
             <p>{this.state.product.description}</p>
             <h2>{`$${this.state.product.price}`}</h2>
-            <button onClick={() => this.addToBag(this.state.product._id)}>
+            <button
+              className="btn btn-blue"
+              onClick={() => this.addToBag(this.state.product._id)}
+            >
               Agregar al carrito
             </button>
-            <button onClick={this.showModal}>Agregar a wishList</button>
+            <button className="btn btn-blue" onClick={this.showModal}>
+              Agregar a wishList
+            </button>
           </div>
         </div>
         <div id="longDescriptionProduct-div">
           <h1>Longer Description</h1>
         </div>
-        <div id="recomendedProducts-div">
-          <CarouselProducts
-            idProducts={[
-              "603fc3b714d9fc49b0f2ab79",
-              "603fc3b714d9fc49b0f2ab7a",
-              "603fc3b714d9fc49b0f2ab7b",
-              "603fc3b714d9fc49b0f2ab7c",
-              "603fc3b714d9fc49b0f2ab7d",
-            ]}
-          />
-        </div>
+        {
+          <div id="recomendedProducts-div">
+            <CarouselProducts
+              idProducts={[
+                "603fc3b714d9fc49b0f2ab79",
+                "603fc3b714d9fc49b0f2ab7a",
+                "603fc3b714d9fc49b0f2ab7b",
+                "603fc3b714d9fc49b0f2ab7c",
+                "603fc3b714d9fc49b0f2ab7d",
+              ]}
+            />
+          </div>
+        }
         <div id="questionsProduct-div">
           <h1>Questions</h1>
         </div>

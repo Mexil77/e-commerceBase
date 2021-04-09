@@ -11,6 +11,7 @@ const cookies = new Cookies();
 export default class Navbar extends Component {
   state = {
     user: false,
+    statHidden: "",
   };
 
   componentDidMount() {
@@ -26,6 +27,7 @@ export default class Navbar extends Component {
   }
 
   closeSession = () => {
+    this.changeStatHiden();
     this.destroyCookie();
     window.location.href = "/";
   };
@@ -37,18 +39,32 @@ export default class Navbar extends Component {
     cookies.remove("email", { path: "/" });
   };
 
+  changeStatHiden = () => {
+    this.setState((state) => ({
+      statHidden: state.statHidden === "" ? "visible" : "",
+    }));
+  };
+
   render() {
     return (
       <div id="nav-div">
-        <img id="navbar-logo" src={Logo} alt="" />
-        <form action="">
-          <input type="search" />
-          <input type="submit" value="Buscar" />
-        </form>
-        <nav id="nav">
-          <ul>
+        <div id="logo-div">
+          <img id="navbar-logo" src={Logo} alt="" />
+        </div>
+        <div id="formSearch-div">
+          <form action="" id="navbarSerch-form">
+            <input id="navbarSerch-bar" type="search" />
+            <input id="navbarSerch-button" type="submit" value="Buscar" />
+          </form>
+        </div>
+        <div id="navItems-div">
+          <ul className={`navItems-ul ${this.state.statHidden}`}>
             <li className="navbar-item">
-              <Link className="navbar-link" to={`/`}>
+              <Link
+                onClick={this.changeStatHiden}
+                className="navbar-link"
+                to={`/`}
+              >
                 Home
               </Link>
             </li>
@@ -64,24 +80,40 @@ export default class Navbar extends Component {
               </li>
             ) : (
               <li className="navbar-item">
-                <Link className="navbar-link" to={`/logIn`}>
+                <Link
+                  onClick={this.changeStatHiden}
+                  className="navbar-link"
+                  to={`/logIn`}
+                >
                   LogIn
                 </Link>
               </li>
             )}
             <li className="navbar-item">
-              <Link className="navbar-link" to={`/productFilter`}>
+              <Link
+                onClick={this.changeStatHiden}
+                className="navbar-link"
+                to={`/productFilter`}
+              >
                 Filter
               </Link>
             </li>
             <li className="navbar-item">
-              <Link className="navbar-link" to={`/bag`}>
+              <Link
+                onClick={this.changeStatHiden}
+                className="navbar-link"
+                to={`/bag`}
+              >
                 Bag
               </Link>
             </li>
             {this.state.user ? (
               <li className="navbar-item">
-                <Link className="navbar-link" to={`/user`}>
+                <Link
+                  onClick={this.changeStatHiden}
+                  className="navbar-link"
+                  to={`/user`}
+                >
                   User
                 </Link>
               </li>
@@ -89,7 +121,22 @@ export default class Navbar extends Component {
               ""
             )}
           </ul>
-        </nav>
+          <div className="block h-full lg:hidden">
+            <button
+              onClick={this.changeStatHiden}
+              className="flex bg-blue-800 items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+            >
+              <svg
+                className="fill-current h-3 w-3"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
