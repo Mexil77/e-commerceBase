@@ -94,7 +94,9 @@ export default class ProductPage extends Component {
           <div id="modalWishList-div">
             <div id="headerModalWishList-div">
               <h1>Tus WishList</h1>
-              <button onClick={this.showModal}>X</button>
+              <button className="btn btn-red" onClick={this.showModal}>
+                X
+              </button>
             </div>
             <div id="bodyModalWishList-div">
               <ContentWishList
