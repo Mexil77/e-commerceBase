@@ -1,39 +1,19 @@
 #contentWishList-div {
-  display: flex;
-  flex-direction: column;
-  background-color: yellowgreen;
-  width: 95%;
+  @apply flex flex-col w-11/12;
 }
 
 .list-div {
-  display: flex;
-  flex-direction: column;
-  background-color: aqua;
-  text-align: center;
-  border-radius: 20px;
-  margin: 10px 0;
-  cursor: pointer;
-  align-items: center;
+  @apply flex flex-col border border-purple-900 text-center rounded-2xl my-3 cursor-pointer items-center;
 }
 
 .listHeder-div {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.listHeder-button {
-  border-radius: 30%;
-  color: blue;
-  margin-right: 10px;
+  @apply flex w-full justify-between;
 }
 
 #formNewList-div {
-  display: flex;
-  justify-content: center;
+  @apply flex justify-center;
 }
 
 .listItems-div {
-  background-color: violet;
-  width: 80%;
+  @apply w-11/12;
 }

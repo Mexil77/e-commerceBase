@@ -152,7 +152,7 @@ const ContentWishList = (props) => {
               </h1>
               {idProduct === "" ? (
                 <button
-                  className="listHeder-button"
+                  className="btn btn-red"
                   onClick={() => dropWishList(wishList._id)}
                 >
                   Eliminar

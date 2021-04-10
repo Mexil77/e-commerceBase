@@ -57,7 +57,7 @@
 
 #userPageRight-div {
   display: flex;
-  background-color: yellowgreen;
+  background-color: white;
   flex-basis: 80%;
   justify-content: center;
 }

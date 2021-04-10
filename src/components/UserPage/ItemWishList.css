@@ -1,32 +1,23 @@
 .itemWishList-div {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: tomato;
-  border-radius: 20px;
-  margin: 5px 0;
+  @apply flex justify-around items-center rounded-2xl my-1 border border-red-600;
 }
 
 .mainPhoto-div {
-  width: 20%;
+  @apply w-1/6;
 }
 .mainPhoto-div img {
-  width: 80%;
-  border-radius: 30%;
+  @apply w-11/12 rounded-2xl;
 }
 .productName-h6 {
-  width: 10%;
-  background-color: yellow;
+  @apply w-1/6 border-l border-r border-black;
 }
 .productDescription-p {
-  width: 50%;
-  background-color: greenyellow;
+  @apply w-1/2;
 }
 .productPrice-h6 {
-  width: 10%;
-  background-color: whitesmoke;
+  @apply w-1/12;
 }
 
 .productDrop-button {
-  width: 10%;
+  @apply w-1/12 h-12 bg-red-500 font-bold rounded-lg text-white hover:bg-red-700;
 }
