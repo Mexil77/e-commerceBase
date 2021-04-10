@@ -89,7 +89,7 @@ export default class ProductPage extends Component {
 
   render() {
     return (
-      <div id="productPage-div">
+      <div id="productPage-div" className="container">
         {this.state.showModal ? (
           <div id="modalWishList-div">
             <div id="headerModalWishList-div">

@@ -3,11 +3,11 @@
 }
 
 #productPrincipalView-div {
-  @apply flex flex-col md:flex-row w-11/12 sm:justify-between items-center md:h-80;
+  @apply flex flex-col md:flex-row w-full sm:justify-between items-center md:h-64 my-8;
 }
 
 #imagesList-div {
-  @apply flex md:w-1/12 order-2 md:order-1 w-11/12 h-full;
+  @apply flex md:w-1/12 order-2 md:order-1 w-11/12 h-full my-4 md:my-0;
 }
 
 .miniImage-ul {
@@ -24,7 +24,7 @@ li img {
 }
 
 #principalImage-div {
-  @apply flex w-full items-center order-1 md:order-2 sm:w-2/3 md:w-1/3 h-80;
+  @apply flex w-full items-center order-1 md:order-2 sm:w-2/3 md:w-1/3 h-64;
 }
 
 #principalImage {
@@ -36,23 +36,23 @@ li img {
 }
 
 #longDescriptionProduct-div {
-  @apply flex w-11/12 bg-pink-400;
+  @apply flex w-full bg-pink-400;
 }
 
 #recomendedProducts-div {
-  @apply w-11/12;
+  @apply w-full;
 }
 
 #questionsProduct-div {
-  @apply w-11/12 bg-green-400;
+  @apply w-full bg-green-400;
 }
 
 #comentsProduct-div {
-  @apply w-11/12 bg-green-700;
+  @apply w-full bg-green-700;
 }
 
 #modalWishList-div {
-  @apply flex flex-col bg-gray-300 bg-opacity-95 absolute w-11/12 md:w-1/2 h-2/3 overflow-scroll overflow-x-hidden;
+  @apply flex flex-col bg-gray-300 bg-opacity-95 absolute w-full md:w-1/2 h-2/3 overflow-scroll overflow-x-hidden;
 }
 
 #headerModalWishList-div {

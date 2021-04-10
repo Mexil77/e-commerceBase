@@ -109,17 +109,22 @@ const ContentWishList = (props) => {
       <div className="list-div">
         {newListClicked ? (
           <div id="formNewList-div">
-            <form action="" onSubmit={handleNewList}>
+            <form id="formNewList-form" action="" onSubmit={handleNewList}>
               <input
+                id="formNewList-input"
                 type="text"
                 name="name"
                 value={data.name}
                 placeholder="Nombre de la nueva lista"
                 onChange={onChange}
               />
-              <button type="submit">Crear y Agregar</button>
+              <button id="formNewList-buttonSubmit" type="submit">
+                Crear y Agregar
+              </button>
             </form>
-            <button onClick={clickNewList}>X</button>
+            <button id="formNewList-buttonCancel" onClick={clickNewList}>
+              X
+            </button>
           </div>
         ) : (
           <h1 onClick={clickNewList}>Nueva Lista</h1>
@@ -138,6 +143,7 @@ const ContentWishList = (props) => {
           >
             <div className="listHeder-div">
               <h1
+                className="listTitle-h1"
                 onClick={
                   idProduct === ""
                     ? () => clickSelectWishList(wishList._id)

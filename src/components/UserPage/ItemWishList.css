@@ -1,23 +1,32 @@
 .itemWishList-div {
-  @apply flex justify-around items-center rounded-2xl my-1 border border-red-600;
+  @apply flex flex-col sm:flex-row rounded-2xl my-2 border border-red-600;
 }
 
 .mainPhoto-div {
-  @apply w-1/6;
+  @apply flex w-full sm:w-1/3 object-contain;
 }
 .mainPhoto-div img {
-  @apply w-11/12 rounded-2xl;
+  @apply w-2/3 mx-auto my-4 rounded-2xl;
 }
+
+.dataProduct-div {
+  @apply flex flex-col w-full sm:w-1/2 text-left justify-between;
+}
+
 .productName-h6 {
-  @apply w-1/6 border-l border-r border-black;
+  @apply text-xl font-bold;
 }
 .productDescription-p {
-  @apply w-1/2;
+  @apply text-base;
 }
 .productPrice-h6 {
-  @apply w-1/12;
+  @apply text-xl font-bold;
+}
+
+.productDropButton-div {
+  @apply flex w-full sm:w-1/6 h-full p-2;
 }
 
 .productDrop-button {
-  @apply w-1/12 h-12 bg-red-500 font-bold rounded-lg text-white hover:bg-red-700;
+  @apply w-full h-12 bg-red-500 font-bold rounded-lg text-white hover:bg-red-700;
 }

@@ -31,15 +31,19 @@ const ItemWishList = (props) => {
       <div className="mainPhoto-div">
         <img src={mainPhoto} alt="" />
       </div>
-      <h6 className="productName-h6">{props.product.name}</h6>
-      <p className="productDescription-p">{props.product.description}</p>
-      <h6 className="productPrice-h6">{`$${props.product.price}`}</h6>
-      <button
-        className="productDrop-button"
-        onClick={() => dropListItem(props.product._id)}
-      >
-        Eliminar
-      </button>
+      <div className="dataProduct-div">
+        <h6 className="productName-h6">{props.product.name}</h6>
+        <p className="productDescription-p">{props.product.description}</p>
+        <h6 className="productPrice-h6">{`$${props.product.price}`}</h6>
+      </div>
+      <div className="productDropButton-div">
+        <button
+          className="productDrop-button"
+          onClick={() => dropListItem(props.product._id)}
+        >
+          Eliminar
+        </button>
+      </div>
     </div>
   );
 };

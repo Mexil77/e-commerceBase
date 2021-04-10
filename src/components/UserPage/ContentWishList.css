@@ -6,8 +6,32 @@
   @apply flex flex-col border border-purple-900 text-center rounded-2xl my-3 cursor-pointer items-center;
 }
 
+#formNewList-div {
+  @apply flex w-full items-center p-2;
+}
+
+#formNewList-form {
+  @apply flex w-11/12 justify-center items-center;
+}
+
+#formNewList-input {
+  @apply w-2/3 rounded-md border border-black;
+}
+
+#formNewList-buttonSubmit {
+  @apply w-1/6 h-12 bg-blue-500 font-bold rounded-lg text-white hover:bg-blue-700;
+}
+
+#formNewList-buttonCancel {
+  @apply w-1/12 h-12 bg-red-500 font-bold rounded-lg text-white hover:bg-red-700;
+}
+
 .listHeder-div {
-  @apply flex w-full justify-between;
+  @apply flex w-full justify-between p-1;
+}
+
+.listTitle-h1 {
+  @apply text-3xl font-bold;
 }
 
 #formNewList-div {
@@ -15,5 +39,5 @@
 }
 
 .listItems-div {
-  @apply w-11/12;
+  @apply flex flex-col w-11/12;
 }

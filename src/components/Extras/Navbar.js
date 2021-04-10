@@ -64,6 +64,7 @@ export default class Navbar extends Component {
                 onClick={this.changeStatHiden}
                 className="navbar-link"
                 to={`/`}
+                style={{ textDecoration: "none" }}
               >
                 Home
               </Link>
@@ -74,6 +75,7 @@ export default class Navbar extends Component {
                   className="navbar-link"
                   to={`/`}
                   onClick={this.closeSession}
+                  style={{ textDecoration: "none" }}
                 >
                   LogOut
                 </Link>
@@ -84,6 +86,7 @@ export default class Navbar extends Component {
                   onClick={this.changeStatHiden}
                   className="navbar-link"
                   to={`/logIn`}
+                  style={{ textDecoration: "none" }}
                 >
                   LogIn
                 </Link>
@@ -94,6 +97,7 @@ export default class Navbar extends Component {
                 onClick={this.changeStatHiden}
                 className="navbar-link"
                 to={`/productFilter`}
+                style={{ textDecoration: "none" }}
               >
                 Filter
               </Link>
@@ -103,6 +107,7 @@ export default class Navbar extends Component {
                 onClick={this.changeStatHiden}
                 className="navbar-link"
                 to={`/bag`}
+                style={{ textDecoration: "none" }}
               >
                 Bag
               </Link>
@@ -113,6 +118,7 @@ export default class Navbar extends Component {
                   onClick={this.changeStatHiden}
                   className="navbar-link"
                   to={`/user`}
+                  style={{ textDecoration: "none" }}
                 >
                   User
                 </Link>

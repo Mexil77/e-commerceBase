@@ -1,5 +1,5 @@
 #carouselProducts-div {
-  @apply flex justify-evenly w-full;
+  @apply flex justify-evenly w-full my-8;
 }
 
 .linkCarouselProduct-Link {
