@@ -152,8 +152,8 @@ const ContentDirections = (props) => {
         className="cardDirection-div"
         onClick={() => formDisplay({})}
       >
-        <h3>Agrega Direccion</h3>
-        <h1>+</h1>
+        <h3 id="cardAddDirection-title">Agrega Direccion</h3>
+        <h1 id="cardAddDirection-icon">+</h1>
       </div>
       {directions.map((direction) => {
         return (

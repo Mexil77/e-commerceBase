@@ -51,13 +51,18 @@ const CardCard = (props) => {
 
   return (
     <div className="cardCard-div">
-      <h6>{props.card.name}</h6>
-      <h6>{`****${lastNumbers}`}</h6>
+      <h6 className="cardCard-name">{props.card.name}</h6>
+      <h6 className="cardCard-lastfour">{`****${lastNumbers}`}</h6>
       {props.from === "UserInfo" ? (
         <div id="cardCardButtons-div">
           {/* This functionality will be add in the fututre */}
           {/* <button onClick={() => props.formDisplay(props.card)}>Editar</button> */}
-          <button onClick={() => dropCard(props.card._id)}>Eliminar</button>
+          <button
+            className="cardCard-dropButton"
+            onClick={() => dropCard(props.card._id)}
+          >
+            Eliminar
+          </button>
         </div>
       ) : (
         <button onClick={() => props.selectCard(props.card)}>

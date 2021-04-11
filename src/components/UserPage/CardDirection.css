@@ -1,5 +1,5 @@
 .cardDirection-div {
-  @apply flex flex-col border-2 border-yellow-300 rounded-lg w-11/12 h-48 my-5 sm:my-0 p-1 justify-between;
+  @apply flex flex-col border-2 border-yellow-300 rounded-lg w-11/12 h-48 my-5 sm:my-0 p-1 justify-between shadow-lg;
 }
 
 .cardDirection-name {

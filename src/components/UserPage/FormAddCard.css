@@ -1,21 +1,23 @@
 #formAddCard-div {
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  background-color: chocolate;
-  align-items: center;
+  @apply flex flex-col w-11/12 items-center;
+}
+
+#formAddCard-title {
+  @apply text-5xl font-bold shadow-lg;
 }
 
 #formAddCard-form {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  background-color: aqua;
+  @apply flex flex-col w-11/12 border-2 border-green-700 rounded-lg p-2;
 }
 
-.formAddCard-colum {
-  display: flex;
-  width: 50%;
-  flex-direction: column;
-  background-color: aquamarine;
+.formAddCard-label {
+  @apply text-base font-bold;
+}
+
+.formAddCard-input {
+  @apply border-b border-r border-gray-400 shadow-md mb-2;
+}
+
+#formAddCard-submit {
+  @apply bg-blue-500 rounded-lg text-2xl font-bold text-white hover:bg-blue-700;
 }

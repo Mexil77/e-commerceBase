@@ -3,7 +3,7 @@
 }
 
 .list-div {
-  @apply flex flex-col border border-purple-900 text-center rounded-2xl my-3 cursor-pointer items-center;
+  @apply flex flex-col border border-purple-900 text-center rounded-2xl my-3 cursor-pointer items-center shadow-lg;
 }
 
 #formNewList-div {

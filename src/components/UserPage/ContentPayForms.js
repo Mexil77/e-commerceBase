@@ -118,8 +118,8 @@ const ContentPayForms = (props) => {
         className="cardCard-div"
         onClick={() => formDisplay({})}
       >
-        <h3>Agrega Tarjeta</h3>
-        <h1>+</h1>
+        <h3 id="contentOptionCards-title">Agrega Tarjeta</h3>
+        <h1 id="contentOptionCards-icon">+</h1>
       </div>
       {cards.map((card) => {
         return (

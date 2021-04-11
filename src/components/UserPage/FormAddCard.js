@@ -27,17 +27,22 @@ const FormAddCard = (props) => {
 
   return (
     <div id="formAddCard-div">
-      <h1>Form</h1>
+      <h1 id="formAddCard-title">Form</h1>
       <form id="formAddCard-form" action="" onSubmit={handleSubmite}>
-        <label htmlFor="name">Nombre: </label>
+        <label className="formAddCard-label" htmlFor="name">
+          Nombre:{" "}
+        </label>
         <input
+          className="formAddCard-input"
           type="text"
           name="name"
           value={props.name}
           onChange={props.onChange}
           placeholder="Ej. Luis Perez Vaesa"
         />
-        <label htmlFor="cardData">Catos de la tarjeta: </label>
+        <label className="formAddCard-label" htmlFor="cardData">
+          Catos de la tarjeta:{" "}
+        </label>
         <CardElement
           options={{
             style: {
@@ -54,7 +59,7 @@ const FormAddCard = (props) => {
             },
           }}
         />
-        <button type="submit" disabled={!stripe}>
+        <button id="formAddCard-submit" type="submit" disabled={!stripe}>
           Add
         </button>
       </form>
