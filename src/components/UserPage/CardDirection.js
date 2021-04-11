@@ -21,15 +21,23 @@ const CardDirection = (props) => {
 
   return (
     <div className="cardDirection-div">
-      <h6>{props.direction.fullName}</h6>
-      <h6>{props.direction.phoneNumber}</h6>
-      <p>{`${props.direction.streetNumber} Col. ${props.direction.suburb} C.P.${props.direction.CP}`}</p>
+      <h6 className="cardDirection-name">{props.direction.fullName}</h6>
+      <h6 className="cardDirection-phone">{props.direction.phoneNumber}</h6>
+      <div className="cardDirectiondirection-div">
+        <p className="cardDirectiondirection-direction">{`${props.direction.streetNumber} Col. ${props.direction.suburb} C.P.${props.direction.CP}`}</p>
+      </div>
       {props.from === "UserInfo" ? (
-        <div id="cardDirectionButtons-div">
-          <button onClick={() => props.formDisplay(props.direction)}>
+        <div className="cardDirectionButtons-div">
+          <button
+            className="cardDirectionButtons-edithButton"
+            onClick={() => props.formDisplay(props.direction)}
+          >
             Editar
           </button>
-          <button onClick={() => dropDirection(props.direction._id)}>
+          <button
+            className="cardDirectionButtons-dropButton"
+            onClick={() => dropDirection(props.direction._id)}
+          >
             Eliminar
           </button>
         </div>

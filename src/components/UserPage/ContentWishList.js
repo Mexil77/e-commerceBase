@@ -127,7 +127,9 @@ const ContentWishList = (props) => {
             </button>
           </div>
         ) : (
-          <h1 onClick={clickNewList}>Nueva Lista</h1>
+          <h1 id="list-h1" onClick={clickNewList}>
+            Nueva Lista
+          </h1>
         )}
       </div>
       {wishLists.map((wishList) => {

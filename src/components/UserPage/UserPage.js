@@ -50,8 +50,7 @@ export default class UserPage extends Component {
         <div id="userPageLeft-div">
           <div id="userCardInfo-div">
             <img src={DefaultImage} alt="" />
-            <h4>{this.state.user.email}</h4>
-            <h4>
+            <h4 id="userCardInfo-h4">
               {this.state.user !== "" ? this.state.user[0].name.name : ""}
             </h4>
           </div>

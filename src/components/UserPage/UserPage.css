@@ -14,6 +14,10 @@
   @apply w-1/2 rounded-full;
 }
 
+#userCardInfo-h4 {
+  @apply text-2xl font-bold;
+}
+
 #menuOptionsInfo-div {
   @apply flex w-11/12;
 }
