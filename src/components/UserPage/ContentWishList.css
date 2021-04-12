@@ -1,5 +1,5 @@
 #contentWishList-div {
-  @apply flex flex-col w-11/12;
+  @apply flex flex-col w-full;
 }
 
 .list-div {

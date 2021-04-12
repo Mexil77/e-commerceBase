@@ -1,84 +1,79 @@
 #contentOptionOrders-div {
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  background-color: turquoise;
+  @apply flex flex-col w-full;
 }
 
 .rowOrder-div {
-  display: flex;
-  background-color: blueviolet;
-  width: 100%;
-  height: 150px;
-  border: 1px outset;
-  margin: 5px 0;
+  @apply flex flex-col border-2 border-purple-600 w-full my-1 p-2 rounded-lg shadow-lg;
+}
+
+.rowOrderHead-div {
+  @apply flex;
 }
 
 .idProduct-div {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 10%;
-  align-items: center;
+  @apply flex w-full;
 }
 
-.idProduct-box {
-  background-color: aqua;
-  width: 50%;
-  height: 50%;
+.idProduct-title {
+  @apply m-0 text-xl;
 }
 
 .idProduct-text {
-  width: 4em;
-  word-wrap: break-word;
-  background-color: springgreen;
+  @apply m-0 text-xl text-yellow-600 underline;
+}
+
+.rowOrderBody-div {
+  @apply flex flex-col sm:flex-row w-full h-full;
 }
 
 .listProducts-div {
-  display: flex;
-  flex-direction: column;
-  background-color: yellowgreen;
-  flex-basis: 70%;
+  @apply flex flex-col w-full order-2 sm:order-1 sm:w-5/6;
 }
 
 .listProductItem-div {
-  display: flex;
-  background-color: thistle;
-  height: 100%;
-  border: 1px solid;
-  margin: 3px 0;
+  @apply flex bg-gray-200 h-24 border-2 border-black rounded-lg my-1 shadow-lg mr-2;
+}
+
+.listProductItemImage-div {
+  @apply flex h-full w-1/3 sm:w-1/6 justify-center items-center;
+}
+
+.listProductItemImage-div img {
+  @apply w-5/6 h-5/6 rounded-lg;
 }
 
 .listProductItemName {
-  background-color: chocolate;
-  height: 100%;
-  flex-basis: 70%;
+  @apply h-full w-1/3 sm:w-1/2 text-2xl font-bold;
 }
-.listProductItemCuantity {
-  background-color: white;
-  height: 100%;
-  flex-basis: 15%;
-  text-align: center;
+
+.listProductItemCuantity-div {
+  @apply flex w-1/6 h-full items-center border-l-2 border-r-2 border-black;
 }
-.listProductItemPrice {
-  background-color: violet;
-  height: 100%;
-  flex-basis: 15%;
-  text-align: center;
+
+.listProductItemCuantity-text {
+  @apply h-1/2 w-full text-center text-2xl;
+}
+
+.listProductItemPrice-div {
+  @apply flex w-1/6 h-full items-center;
+}
+
+.listProductItemPrice-text {
+  @apply h-1/2 w-full text-center text-2xl;
 }
 
 .generalInfo-div {
-  display: flex;
-  flex-direction: column;
-  background-color: springgreen;
-  flex-basis: 20%;
-  justify-content: space-around;
-  text-align: center;
+  @apply flex w-full justify-between sm:flex-col sm:w-1/6 sm:h-32 text-center border-2 border-green-500 rounded-lg order-1 sm:order-2;
+}
+
+.titleOrder {
+  @apply text-3xl sm:text-xl lg:text-3xl;
 }
 
 .dateOrder {
-  background-color: yellow;
+  @apply text-2xl sm:text-lg lg:text-2xl;
 }
 
 .totalPayOrder {
-  background-color: slategrey;
+  @apply text-2xl sm:text-lg lg:text-2xl;
 }

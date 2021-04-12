@@ -89,7 +89,7 @@ export default class UserPage extends Component {
             </ul>
           </div>
         </div>
-        <div id="userPageRight-div">
+        <div id="userPageRight-div" className="container">
           {this.state.constentComponent === 0 ? (
             <ContentInfo user={this.state.user[0]} getUser={this.getUser} />
           ) : this.state.constentComponent === 1 ? (
