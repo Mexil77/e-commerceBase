@@ -125,143 +125,165 @@ const ContentInfo = (props) => {
 
   return (
     <div id="contentOptionInfo-div">
-      <h1>{props.user.email}</h1>
+      <h1 className="text-5xl">Tu info</h1>
 
-      <form action="" onSubmit={handleSubmit}>
-        {haveName ? (
-          <h5>
-            {`${props.user.name.name} ${props.user.name.lastName} ${props.user.name.secondLastName}`}
-          </h5>
-        ) : (
-          <div className="notFount">
-            <h5>Aun no sabemos como te llamas</h5>
+      <form id="contentOptionInfo-form" action="" onSubmit={handleSubmit}>
+        <div className="form-row">
+          <div className="textUserInfo-div">
+            {haveName ? (
+              <h5>
+                {`${props.user.name.name} ${props.user.name.lastName} ${props.user.name.secondLastName}`}
+              </h5>
+            ) : (
+              <h5>Aun no sabemos como te llamas</h5>
+            )}
           </div>
-        )}
-        {edithName ? (
-          <div id="fullNameForm-div">
-            <input
-              type="text"
-              name="name"
-              value={data.name}
-              onChange={onChange}
-              id=""
-              placeholder="Tu nombre"
-            />
-            <input
-              type="text"
-              name="lastName"
-              value={data.lastName}
-              onChange={onChange}
-              id=""
-              placeholder="Tu Apellido Paterno"
-            />
-            <input
-              type="text"
-              name="secondLastName"
-              value={data.secondLastName}
-              onChange={onChange}
-              id=""
-              placeholder="Tu Apellido Materno"
-            />
+          <div className="formInput-div">
+            {edithName ? (
+              <div id="fullNameForm-div">
+                <input
+                  type="text"
+                  name="name"
+                  value={data.name}
+                  onChange={onChange}
+                  id=""
+                  className="fullNameForm-input"
+                  placeholder="Tu nombre"
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  value={data.lastName}
+                  onChange={onChange}
+                  id=""
+                  className="fullNameForm-input"
+                  placeholder="Tu Apellido Paterno"
+                />
+                <input
+                  type="text"
+                  name="secondLastName"
+                  value={data.secondLastName}
+                  onChange={onChange}
+                  id=""
+                  className="fullNameForm-input"
+                  placeholder="Tu Apellido Materno"
+                />
+              </div>
+            ) : (
+              <button
+                className="addField-button"
+                onClick={() => edithField("name")}
+              >
+                Editar
+              </button>
+            )}
           </div>
-        ) : (
-          <button
-            className="addField-button"
-            onClick={() => edithField("name")}
-          >
-            Editar
-          </button>
-        )}
-
-        {havePhone ? (
-          <h5>{`Telefono: ${props.user.phone}`}</h5>
-        ) : (
-          <div className="notFount">
-            <h5>Aun no sabemos a que numero podemos contactarte</h5>
+        </div>
+        <div className="form-row">
+          <div className="textUserInfo-div">
+            {havePhone ? (
+              <h5>{`Telefono: ${props.user.phone}`}</h5>
+            ) : (
+              <h5>Aun no sabemos a que numero podemos contactarte</h5>
+            )}
           </div>
-        )}
-        {edithPhone ? (
-          <input
-            type="number"
-            name="phone"
-            value={data.phone}
-            onChange={onChange}
-            id=""
-            placeholder="Telefono"
-          />
-        ) : (
-          <button
-            className="addField-button"
-            onClick={() => edithField("phone")}
-          >
-            Editar
-          </button>
-        )}
-        {haveBirthDay ? (
-          <h5>{`Cumpleaños: ${props.user.birthDay.day}/${props.user.birthDay.month}/${props.user.birthDay.year}`}</h5>
-        ) : (
-          <div className="notFount">
-            <h5>
-              Aun no sabemos a que dia podemos felicitarte por tu cumpleaños
-            </h5>
+          <div className="formInput-div">
+            {edithPhone ? (
+              <div id="phoneForm-div">
+                <input
+                  type="number"
+                  name="phone"
+                  value={data.phone}
+                  onChange={onChange}
+                  id=""
+                  placeholder="Telefono"
+                  className="fullNameForm-input"
+                />
+              </div>
+            ) : (
+              <button
+                className="addField-button"
+                onClick={() => edithField("phone")}
+              >
+                Editar
+              </button>
+            )}
           </div>
-        )}
-        {edithBirthDay ? (
-          <div className="birthDayForm-div">
-            <select
-              name="birthDayDay"
-              onChange={onChange}
-              value={data.birthDayDay}
-              id=""
-            >
-              {days.map((day) => {
-                return (
-                  <option key={day} value={day}>
-                    {day}
-                  </option>
-                );
-              })}
-            </select>
-            <select
-              name="birthDayMonth"
-              onChange={onChange}
-              value={data.birthDayMonth}
-              id=""
-            >
-              {months.map((month) => {
-                return (
-                  <option key={month} value={month}>
-                    {month}
-                  </option>
-                );
-              })}
-            </select>
-            <select
-              name="birthDayYear"
-              onChange={onChange}
-              value={data.birthDayYear}
-              id=""
-            >
-              {years.map((year) => {
-                return (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                );
-              })}
-            </select>
+        </div>
+        <div className="form-row">
+          <div className="textUserInfo-div">
+            {haveBirthDay ? (
+              <h5>{`Cumpleaños: ${props.user.birthDay.day}/${props.user.birthDay.month}/${props.user.birthDay.year}`}</h5>
+            ) : (
+              <h5>
+                Aun no sabemos a que dia podemos felicitarte por tu cumpleaños
+              </h5>
+            )}
           </div>
-        ) : (
-          <button
-            className="addField-button"
-            onClick={() => edithField("birthDay")}
-          >
-            Editar
-          </button>
-        )}
+          <div className="formInput-div">
+            {edithBirthDay ? (
+              <div id="birthDayForm-div">
+                <select
+                  name="birthDayDay"
+                  onChange={onChange}
+                  value={data.birthDayDay}
+                  id=""
+                  className="fullNameForm-input"
+                >
+                  {days.map((day) => {
+                    return (
+                      <option key={day} value={day}>
+                        {day}
+                      </option>
+                    );
+                  })}
+                </select>
+                <select
+                  name="birthDayMonth"
+                  onChange={onChange}
+                  value={data.birthDayMonth}
+                  id=""
+                  className="fullNameForm-input"
+                >
+                  {months.map((month) => {
+                    return (
+                      <option key={month} value={month}>
+                        {month}
+                      </option>
+                    );
+                  })}
+                </select>
+                <select
+                  name="birthDayYear"
+                  onChange={onChange}
+                  value={data.birthDayYear}
+                  id=""
+                  className="fullNameForm-input"
+                >
+                  {years.map((year) => {
+                    return (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            ) : (
+              <button
+                className="addField-button"
+                onClick={() => edithField("birthDay")}
+              >
+                Editar
+              </button>
+            )}
+          </div>
+        </div>
         <br />
         {edithName || edithPhone || edithBirthDay ? (
-          <button className="submit-button">Guardar</button>
+          <div id="submitButton-div">
+            <button id="submit-button">Guardar</button>
+          </div>
         ) : (
           ""
         )}
