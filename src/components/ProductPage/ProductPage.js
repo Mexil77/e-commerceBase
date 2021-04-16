@@ -39,15 +39,21 @@ export default class ProductPage extends Component {
       `${process.env.REACT_APP_URI_PREFIX_USE}users/user`,
       { params: queryUser }
     );
-    this.setState({
-      wishLists: user.data.wishLists,
-    });
+    if (user.data !== null) {
+      this.setState({
+        wishLists: user.data.wishLists,
+      });
+    }
   };
 
   showModal = () => {
-    this.setState((state) => ({
-      showModal: !state.showModal,
-    }));
+    if (cookies.get("id")) {
+      this.setState((state) => ({
+        showModal: !state.showModal,
+      }));
+    } else {
+      this.props.history.push("/logIn");
+    }
   };
 
   findProduct = async (idProduct) => {
@@ -83,7 +89,7 @@ export default class ProductPage extends Component {
       );
       alert(res.data.message);
     } else {
-      window.location.href = "/logIn";
+      this.props.history.push("/logIn");
     }
   };
 
@@ -129,23 +135,27 @@ export default class ProductPage extends Component {
             <img id="principalImage" src={this.state.mainPhoto} alt="" />
           </div>
           <div id="panelProduct-div">
-            <h1>{this.state.product.name}</h1>
-            <p>{this.state.product.description}</p>
-            <h2>{`$${this.state.product.price}`}</h2>
-            <button
-              className="btn btn-blue"
-              onClick={() => this.addToBag(this.state.product._id)}
-            >
-              Agregar al carrito
-            </button>
-            <button className="btn btn-blue" onClick={this.showModal}>
-              Agregar a wishList
-            </button>
+            <h1 id="panelProduct-title">{this.state.product.name}</h1>
+            <p id="panelProduct-description">
+              {this.state.product.description}
+            </p>
+            <h2 id="panelProduct-price">{`$${this.state.product.price}`}</h2>
+            <div id="buttons-div">
+              <button
+                id="addBag-button"
+                onClick={() => this.addToBag(this.state.product._id)}
+              >
+                Agregar al carrito
+              </button>
+              <button id="addWishList-button" onClick={this.showModal}>
+                Agregar a wishList
+              </button>
+            </div>
           </div>
         </div>
-        <div id="longDescriptionProduct-div">
+        {/* <div id="longDescriptionProduct-div">
           <h1>Longer Description</h1>
-        </div>
+        </div> */}
         {
           <div id="recomendedProducts-div">
             <CarouselProducts
@@ -159,12 +169,12 @@ export default class ProductPage extends Component {
             />
           </div>
         }
-        <div id="questionsProduct-div">
+        {/* <div id="questionsProduct-div">
           <h1>Questions</h1>
         </div>
         <div id="comentsProduct-div">
           <h1>Coments</h1>
-        </div>
+        </div> */}
       </div>
     );
   }

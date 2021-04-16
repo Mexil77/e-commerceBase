@@ -14,7 +14,6 @@ const PayForm = (props) => {
     discountStocks();
     emptyBag();
     props.history.push("success");
-    //window.location.href = "/success";
   };
 
   const makePaymentIntent = async () => {

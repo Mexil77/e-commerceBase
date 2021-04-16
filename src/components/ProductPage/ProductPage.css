@@ -32,24 +32,48 @@ li img {
 }
 
 #panelProduct-div {
-  @apply w-full bg-blue-300 rounded-lg md:w-1/2 md:h-full order-3;
+  @apply w-full border-2 border-blue-300 bg-gray-200 p-2 rounded-lg md:w-1/2 md:h-full order-3;
 }
 
-#longDescriptionProduct-div {
-  @apply flex w-full bg-pink-400;
+#panelProduct-title {
+  @apply text-4xl font-bold;
 }
+
+#panelProduct-description {
+  @apply text-base;
+}
+
+#panelProduct-price {
+  @apply text-3xl font-bold;
+}
+
+#buttons-div {
+  @apply flex justify-between;
+}
+
+#addBag-button {
+  @apply text-sm font-bold py-2 px-2 rounded-lg border-2 border-yellow-400 hover:text-white hover:bg-yellow-400 w-1/3;
+}
+
+#addWishList-button {
+  @apply text-sm font-bold py-2 px-2 rounded-lg border-2 border-blue-500 hover:text-white hover:bg-blue-500 w-1/3;
+}
+
+/* #longDescriptionProduct-div {
+  @apply flex w-full bg-pink-400;
+} */
 
 #recomendedProducts-div {
   @apply w-full;
 }
 
-#questionsProduct-div {
+/* #questionsProduct-div {
   @apply w-full bg-green-400;
 }
 
 #comentsProduct-div {
   @apply w-full bg-green-700;
-}
+} */
 
 #modalWishList-div {
   @apply flex flex-col bg-gray-300 bg-opacity-95 absolute w-full md:w-1/2 h-2/3 overflow-scroll overflow-x-hidden;
