@@ -1,22 +1,11 @@
-#title {
-  margin: 0;
-}
-
 #signIn-card-div {
-  display: flex;
-  width: 40%;
-  height: 300px;
-  background-color: greenyellow;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 15px;
+  @apply flex flex-col w-full sm:w-3/5 md:w-2/5 items-center justify-between rounded-lg;
 }
 
 #signIn-form {
-  display: flex;
-  flex-direction: column;
-  background-color: teal;
-  width: 50%;
-  justify-items: auto;
+  @apply flex flex-col border-2 border-blue-600 bg-gray-300 rounded-lg my-2 w-5/6 p-2 shadow-lg;
+}
+
+#submitform-button {
+  @apply border-2 border-blue-500 hover:bg-blue-500 hover:text-white my-2 w-1/2 rounded-lg text-base font-bold;
 }

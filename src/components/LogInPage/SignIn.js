@@ -36,34 +36,56 @@ export default class SignIn extends Component {
   render() {
     return (
       <div id="signIn-card-div">
-        <h1 id="title">Crea cuenta</h1>
+        <h1 className="title">Crea una cuenta</h1>
         <form onSubmit={this.onSubmitCreate} id="signIn-form">
-          <label htmlFor="email-input">Correo</label>
+          <label className="form-label" htmlFor="email-input">
+            Correo
+          </label>
           <input
-            id="email-input"
+            className="form-input"
             type="email"
             name="emailCreate"
             value={this.state.emailCreate}
             onChange={this.onChangeField}
           />
-          <label htmlFor="password-input">Contraseña</label>
+          <label className="form-label" htmlFor="password-input">
+            Contraseña
+          </label>
           <input
-            id="password-input"
+            className="form-input"
             type="password"
             name="passwordCreate"
             value={this.state.passwordCreate}
             onChange={this.onChangeField}
           />
-          <label htmlFor="second-password-input">Contraseña</label>
+          <label className="form-label" htmlFor="second-password-input">
+            Contraseña
+          </label>
           <input
-            id="second-password-input"
+            className="form-input"
             type="password"
             name="passwordConfirmCreate"
             value={this.state.passwordConfirmCreate}
             onChange={this.onChangeField}
           />
-          <button type="submit">Crear</button>
+          <button id="submitform-button" type="submit">
+            Crear cuenta
+          </button>
         </form>
+        <div className="links-div">
+          <button
+            className="button-item"
+            onClick={() => this.props.changeForm("logIn")}
+          >
+            Inicia Sesion
+          </button>
+          <button
+            className="button-item"
+            onClick={() => this.props.changeForm("forgotPassword")}
+          >
+            Olvidaste tu contraseña?
+          </button>
+        </div>
       </div>
     );
   }

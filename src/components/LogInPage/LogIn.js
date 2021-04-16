@@ -44,23 +44,23 @@ export default class LogIn extends Component {
         ) : (
           ""
         )}
-        <h1 id="title">Inicia Sesion</h1>
+        <h1 className="title">Inicia Sesion</h1>
         <form onSubmit={this.onSubmitSignIn} id="logIn-form">
-          <label id="email-label" htmlFor="email-input">
+          <label className="form-label" htmlFor="email-input">
             Correo
           </label>
           <input
-            id="email-input"
+            className="form-input"
             type="email"
             name="emailSignIn"
             value={this.state.emailSignIn}
             onChange={this.onChangeField}
           />
-          <label id="password-label" htmlFor="password-input">
+          <label className="form-label" htmlFor="password-input">
             Contraseña
           </label>
           <input
-            id="password-input"
+            className="form-input"
             type="password"
             name="passwordSignIn"
             value={this.state.passwordSignIn}
@@ -70,16 +70,16 @@ export default class LogIn extends Component {
             Inicia Sesion
           </button>
         </form>
-        <div id="links-div">
+        <div className="links-div">
           <button
             className="button-item"
-            onClick={(form) => this.props.changeForm("signIn")}
+            onClick={() => this.props.changeForm("signIn")}
           >
             No tienes cuenta? crea una
           </button>
           <button
             className="button-item"
-            onClick={(form) => this.props.changeForm("forgotPassword")}
+            onClick={() => this.props.changeForm("forgotPassword")}
           >
             Olvidaste tu contraseña?
           </button>

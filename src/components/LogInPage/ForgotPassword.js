@@ -16,19 +16,37 @@ export default class ForgotPassword extends Component {
   render() {
     return (
       <div id="forgotPassword-card-div">
-        <h1 id="title">Crea cuenta</h1>
+        <h1 className="title">Crea cuenta</h1>
         <form onSubmit={this.onSubmitCreate} id="forgotPassword-form">
-          <label htmlFor="email-input">Correo</label>
+          <label className="form-label" htmlFor="email-input">
+            Correo
+          </label>
           <input
-            id="email-input"
+            className="form-input"
             type="email"
             name="emailPetition"
             value={this.state.emailCreate}
             onChange={this.onChangeField}
           />
 
-          <button type="submit">Enviar correo</button>
+          <button id="sendEmail-button" type="submit">
+            Enviar correo
+          </button>
         </form>
+        <div className="links-div">
+          <button
+            className="button-item"
+            onClick={() => this.props.changeForm("logIn")}
+          >
+            Inicia Sesion
+          </button>
+          <button
+            className="button-item"
+            onClick={() => this.props.changeForm("signIn")}
+          >
+            No tienes cuenta? crea una
+          </button>
+        </div>
       </div>
     );
   }

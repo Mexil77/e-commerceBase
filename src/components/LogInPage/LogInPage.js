@@ -15,11 +15,11 @@ export default class LogInPage extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.form !== "logIn") {
+    /* if (prevState.form !== "logIn") {
       this.setState({
         form: "logIn",
       });
-    }
+    } */
   }
 
   changeForm = (form) => {
@@ -44,9 +44,12 @@ export default class LogInPage extends Component {
             createCookie={(user) => this.createCookie(user)}
           />
         ) : this.state.form === "signIn" ? (
-          <SignIn createCookie={(user) => this.createCookie(user)} />
+          <SignIn
+            changeForm={this.changeForm}
+            createCookie={(user) => this.createCookie(user)}
+          />
         ) : (
-          <ForgotPassword />
+          <ForgotPassword changeForm={this.changeForm} />
         )}
       </div>
     );

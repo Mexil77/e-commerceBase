@@ -1,3 +1,23 @@
 #logInPage-div {
   @apply flex flex-col items-center;
 }
+
+.title {
+  @apply m-2 text-3xl font-bold;
+}
+
+.form-label {
+  @apply text-base font-bold;
+}
+
+.form-input {
+  @apply border-2 rounded-lg border-gray-300 outline-none focus:border-green-700 p-1;
+}
+
+.links-div {
+  @apply flex w-5/6 justify-between;
+}
+
+.button-item {
+  @apply border-2 border-yellow-400 text-sm font-bold w-1/3 rounded-xl hover:bg-gray-200 hover:border-green-500 shadow-lg;
+}
