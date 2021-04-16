@@ -38,7 +38,6 @@ export default class LogInPage extends Component {
   render() {
     return (
       <div id="logInPage-div">
-        <h1>Welcome log in</h1>
         {this.state.form === "logIn" ? (
           <LogIn
             changeForm={this.changeForm}

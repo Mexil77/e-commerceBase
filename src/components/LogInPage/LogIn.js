@@ -46,23 +46,29 @@ export default class LogIn extends Component {
         )}
         <h1 id="title">Inicia Sesion</h1>
         <form onSubmit={this.onSubmitSignIn} id="logIn-form">
-          <label htmlFor="email-input">Correo</label>
+          <label id="email-label" htmlFor="email-input">
+            Correo
+          </label>
           <input
-            id="email-inpud"
+            id="email-input"
             type="email"
             name="emailSignIn"
             value={this.state.emailSignIn}
             onChange={this.onChangeField}
           />
-          <label htmlFor="password-input">Contraseña</label>
+          <label id="password-label" htmlFor="password-input">
+            Contraseña
+          </label>
           <input
-            id="password-inpud"
+            id="password-input"
             type="password"
             name="passwordSignIn"
             value={this.state.passwordSignIn}
             onChange={this.onChangeField}
           />
-          <button type="submit">Inicia Sesion</button>
+          <button id="button-submit" type="submit">
+            Inicia Sesion
+          </button>
         </form>
         <div id="links-div">
           <button

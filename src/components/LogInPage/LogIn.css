@@ -1,30 +1,39 @@
 #title {
-  background-color: yellowgreen;
-  margin: 0;
+  @apply m-2 text-3xl font-bold;
 }
 
 #logIn-card-div {
-  display: flex;
-  width: 40%;
-  height: 300px;
-  background-color: aqua;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 15px;
+  @apply flex flex-col w-full sm:w-3/5 md:w-2/5 h-72 items-center justify-evenly rounded-xl;
 }
 
 #logIn-form {
-  display: flex;
-  flex-direction: column;
-  background-color: teal;
-  width: 50%;
-  justify-items: auto;
+  @apply flex flex-col rounded-lg border-2 bg-gray-300 border-blue-500 w-5/6 p-2;
 }
 
-#button-div {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-  background-color: aliceblue;
+#email-label {
+  @apply text-base font-bold;
+}
+
+#email-input {
+  @apply border-2 rounded-lg border-gray-300 outline-none focus:border-green-700;
+}
+
+#password-label {
+  @apply text-base font-bold;
+}
+
+#password-input {
+  @apply border-2 rounded-lg border-gray-300 outline-none focus:border-green-700;
+}
+
+#button-submit {
+  @apply border-2 border-purple-600 hover:bg-purple-600 hover:text-white rounded-lg w-1/2 text-base font-bold my-2;
+}
+
+#links-div {
+  @apply flex w-5/6 justify-between;
+}
+
+.button-item {
+  @apply border-2 border-yellow-400 text-sm font-bold w-1/3 rounded-xl hover:bg-gray-200 hover:border-green-500;
 }
