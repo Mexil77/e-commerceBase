@@ -1,5 +1,5 @@
 #nav-div {
-  @apply flex bg-red-700 items-center h-12;
+  @apply flex bg-gradient-to-r from-purple-900 items-center h-12;
 }
 
 #logo-div {
@@ -34,9 +34,9 @@
 }
 
 .navbar-item {
-  @apply flex bg-gray-800 bg-opacity-50 justify-center;
+  @apply flex bg-gray-800 lg:bg-transparent bg-opacity-50 justify-center lg:rounded-lg;
 }
 
 .navbar-link {
-  @apply w-4/5 inline-block border border-blue-500 rounded py-2 px-4 bg-red-500 hover:bg-green-500 text-white lg:w-full;
+  @apply w-4/5 inline-block transform lg:skew-y-3 lg:hover:-skew-y-3 py-2 px-4 bg-gray-500 lg:bg-opacity-50 lg:border border-black hover:bg-blue-500 text-white hover:text-black font-bold lg:w-full;
 }

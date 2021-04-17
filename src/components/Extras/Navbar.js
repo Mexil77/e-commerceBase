@@ -49,7 +49,9 @@ export default class Navbar extends Component {
     return (
       <div id="nav-div">
         <div id="logo-div">
-          <img id="navbar-logo" src={Logo} alt="" />
+          <Link to={"/"}>
+            <img id="navbar-logo" src={Logo} alt="" />
+          </Link>
         </div>
         <div id="formSearch-div">
           <form action="" id="navbarSerch-form">
