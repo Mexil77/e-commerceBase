@@ -1,4 +1,3 @@
 #bag-div {
-  background-color: chartreuse;
-  flex-basis: 80%;
+  @apply flex flex-col w-full md:w-4/5 items-center order-2 md:order-1;
 }

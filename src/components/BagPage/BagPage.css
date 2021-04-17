@@ -1,15 +1,27 @@
 #bagPage-div {
-  display: flex;
-  flex-direction: column;
-  background-color: burlywood;
+  @apply flex flex-col;
 }
 
 #mainBag-div {
-  display: flex;
-  background-color: aqua;
+  @apply flex flex-col md:flex-row;
 }
 
 #pay-div {
-  background-color: darkgoldenrod;
-  flex-basis: 20%;
+  @apply w-full md:w-1/5 h-44 p-2 order-1 md:order-2;
+}
+
+#pay-card {
+  @apply border-2 border-pink-400 h-full rounded-lg text-center;
+}
+
+#pay-title {
+  @apply text-3xl font-bold;
+}
+
+#pay-totalAmount {
+  @apply text-3xl font-bold;
+}
+
+#pay-button {
+  @apply text-base font-bold text-white bg-blue-600 border-2 border-gray-500 hover:bg-blue-800 hover:border-green-600 rounded-lg w-5/6;
 }

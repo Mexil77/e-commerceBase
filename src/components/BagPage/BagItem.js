@@ -49,34 +49,47 @@ const BagItem = (props) => {
   return (
     <li id="bagItem-li">
       <ul id="dataItem-ul">
-        <li id="dataItem-li">
+        <li id="dataItem-li1">
           <img src={mainPhoto} alt="" />
         </li>
-        <li id="dataItem-li">{product.description}</li>
-        <li id="dataItem-li">
-          <div id="gridNumberItems-div">
-            <div id="numberAndButons-div">
-              <label className="labelCuantify" htmlFor="cantidad">
-                {props.cuantity}
-              </label>
-              <div id="buttonsPlusMinius-div">
-                <button onClick={() => modifyCuantity("add", product)}>
-                  +
-                </button>
-                <button onClick={() => modifyCuantity("substraction", product)}>
-                  -
-                </button>
+        <li id="dataItem-li2">{product.description}</li>
+        <div id="buttonsAndCuantity">
+          <li id="dataItem-li3">
+            <div id="gridNumberItems-div">
+              <div id="numberAndButons-div">
+                <label className="labelCuantify" htmlFor="cantidad">
+                  {props.cuantity}
+                </label>
+                <div id="buttonsPlusMinius-div">
+                  <button
+                    className="buttonsPlusMinius-button"
+                    onClick={() => modifyCuantity("add", product)}
+                  >
+                    +
+                  </button>
+                  <button
+                    className="buttonsPlusMinius-button"
+                    onClick={() => modifyCuantity("substraction", product)}
+                  >
+                    -
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <button onClick={() => deleteBagItem(product._id)}>Eliminar</button>
-          </div>
-        </li>
-        <li id="dataItem-li">
-          <label className="labelTotal" htmlFor="labelTotal">
-            {`$${product.price * props.cuantity}`}
-          </label>
-        </li>
+              <button
+                id="dropBag-button"
+                onClick={() => deleteBagItem(product._id)}
+              >
+                X
+              </button>
+            </div>
+          </li>
+          <li id="dataItem-li4">
+            <label className="labelTotal" htmlFor="labelTotal">
+              {`$${product.price * props.cuantity}`}
+            </label>
+          </li>
+        </div>
       </ul>
     </li>
   );

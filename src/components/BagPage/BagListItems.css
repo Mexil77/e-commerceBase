@@ -1,5 +1,7 @@
+#bagListItems-div {
+  @apply flex w-full;
+}
+
 #bagListItems-ul {
-  background-color: blue;
-  padding: 0;
-  margin: 0;
+  @apply flex flex-col p-5 w-full items-center;
 }

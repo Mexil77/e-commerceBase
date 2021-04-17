@@ -105,22 +105,22 @@ export default class BagPage extends Component {
     return (
       <div id="bagPage-div">
         <div id="mainBag-div">
-          <div id="bag-div">
-            <Bag
-              bagList={this.state.bagList}
-              addTotalAmount={this.addTotalAmount}
-              substractTotalAmount={this.substractTotalAmount}
-              modifyCuantity={this.modifyCuantity}
-              getUserBag={this.getUserBag}
-              updateBagUser={this.updateBagUser}
-            />
-          </div>
+          <Bag
+            bagList={this.state.bagList}
+            addTotalAmount={this.addTotalAmount}
+            substractTotalAmount={this.substractTotalAmount}
+            modifyCuantity={this.modifyCuantity}
+            getUserBag={this.getUserBag}
+            updateBagUser={this.updateBagUser}
+          />
           <div id="pay-div">
-            <h1>Pay button</h1>
-            <h2>{`$${this.state.totalAmount}`}</h2>
-            <Link to="/paySteps">
-              <button>Proceder al pago</button>
-            </Link>
+            <div id="pay-card">
+              <h1 id="pay-title">Total</h1>
+              <h2 id="pay-totalAmount">{`$${this.state.totalAmount}`}</h2>
+              <Link to="/paySteps">
+                <button id="pay-button">Proceder al pago</button>
+              </Link>
+            </div>
           </div>
         </div>
         <CarouselProducts
