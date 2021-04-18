@@ -75,7 +75,9 @@ const PayForm = (props) => {
   return (
     <form id="payForm-form" onSubmit={handleSubmite}>
       <h1>{`$${props.totalAmount}`}</h1>
-      <button type="submit">Pay</button>
+      <button id="payButton" type="submit">
+        Pay
+      </button>
     </form>
   );
 };

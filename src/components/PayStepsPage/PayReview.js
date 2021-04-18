@@ -41,23 +41,22 @@ export default class PayReview extends Component {
   render() {
     return (
       <div id="payReview-div">
-        <div id="mainBag-div">
-          <div id="bag-div">
-            <Bag
-              bagList={this.state.bagList}
-              addTotalAmount={this.addTotalAmount}
-            />
-          </div>
-          <div id="payForm-div">
-            <PayForm
-              totalAmount={this.state.totalAmount}
-              bagList={this.state.bagList}
-              card={this.props.card}
-              direction={this.props.direction}
-              stripeId={this.props.stripeId}
-              history={this.props.history}
-            />
-          </div>
+        <div id="bag-div">
+          <Bag
+            bagList={this.state.bagList}
+            addTotalAmount={this.addTotalAmount}
+            fromPaySteps={this.props.fromPaySteps}
+          />
+        </div>
+        <div id="payForm-div">
+          <PayForm
+            totalAmount={this.state.totalAmount}
+            bagList={this.state.bagList}
+            card={this.props.card}
+            direction={this.props.direction}
+            stripeId={this.props.stripeId}
+            history={this.props.history}
+          />
         </div>
       </div>
     );

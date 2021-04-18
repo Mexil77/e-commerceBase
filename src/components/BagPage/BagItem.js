@@ -60,28 +60,35 @@ const BagItem = (props) => {
                 <label className="labelCuantify" htmlFor="cantidad">
                   {props.cuantity}
                 </label>
-                <div id="buttonsPlusMinius-div">
-                  <button
-                    className="buttonsPlusMinius-button"
-                    onClick={() => modifyCuantity("add", product)}
-                  >
-                    +
-                  </button>
-                  <button
-                    className="buttonsPlusMinius-button"
-                    onClick={() => modifyCuantity("substraction", product)}
-                  >
-                    -
-                  </button>
-                </div>
+                {props.fromPaySteps ? (
+                  ""
+                ) : (
+                  <div id="buttonsPlusMinius-div">
+                    <button
+                      className="buttonsPlusMinius-button"
+                      onClick={() => modifyCuantity("add", product)}
+                    >
+                      +
+                    </button>
+                    <button
+                      className="buttonsPlusMinius-button"
+                      onClick={() => modifyCuantity("substraction", product)}
+                    >
+                      -
+                    </button>
+                  </div>
+                )}
               </div>
-
-              <button
-                id="dropBag-button"
-                onClick={() => deleteBagItem(product._id)}
-              >
-                X
-              </button>
+              {props.fromPaySteps ? (
+                ""
+              ) : (
+                <button
+                  id="dropBag-button"
+                  onClick={() => deleteBagItem(product._id)}
+                >
+                  X
+                </button>
+              )}
             </div>
           </li>
           <li id="dataItem-li4">

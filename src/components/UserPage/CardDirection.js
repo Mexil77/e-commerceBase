@@ -42,7 +42,10 @@ const CardDirection = (props) => {
           </button>
         </div>
       ) : (
-        <button onClick={() => props.selectDirection(props.direction)}>
+        <button
+          className="cardDirectionButtons-selectButton"
+          onClick={() => props.selectDirection(props.direction)}
+        >
           A esta Direccion
         </button>
       )}

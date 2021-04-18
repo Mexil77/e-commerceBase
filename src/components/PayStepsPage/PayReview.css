@@ -1,23 +1,17 @@
 #payReview-div {
-  background-color: aqua;
-  width: 95%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* height: 500px; */
+  @apply flex flex-col md:flex-row border-2 border-blue-500 rounded-lg w-11/12 justify-center items-center;
 }
 
 #payForm-div {
-  background-color: slateblue;
-  flex-basis: 40%;
-  align-content: center;
+  @apply w-full md:w-2/5 content-center;
 }
 
 .cardElement-card {
-  width: 100%;
+  @apply w-full;
 }
 
 .StripeElement {
-  width: 100%;
-  padding: 11px 15px 11px 0;
+  /*   width: 100%;
+  padding: 11px 15px 11px 0; */
+  @apply w-full p-10;
 }

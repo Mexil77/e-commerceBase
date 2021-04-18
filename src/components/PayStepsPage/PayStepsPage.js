@@ -73,6 +73,7 @@ export default class PayStepsPage extends Component {
               directions={this.state.directions}
               from={"PayPage"}
               selectDirection={this.selectDirection}
+              getUser={this.getUser}
             />
           ) : (
             ""
@@ -83,6 +84,7 @@ export default class PayStepsPage extends Component {
             stripeId={this.state.stripeId}
             from={"PayPage"}
             selectCard={this.selectCard}
+            getUser={this.getUser}
           />
         ) : (
           <PayReview
@@ -90,6 +92,7 @@ export default class PayStepsPage extends Component {
             direction={this.state.directionSelected}
             stripeId={this.state.stripeId}
             history={this.props.history}
+            fromPaySteps={true}
           />
         )}
       </div>

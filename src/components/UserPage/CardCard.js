@@ -65,7 +65,10 @@ const CardCard = (props) => {
           </button>
         </div>
       ) : (
-        <button onClick={() => props.selectCard(props.card)}>
+        <button
+          className="cardCard-selectButton"
+          onClick={() => props.selectCard(props.card)}
+        >
           Elegir esta
         </button>
       )}

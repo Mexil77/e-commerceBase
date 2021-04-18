@@ -1,7 +1,7 @@
 #payForm-form {
-  display: flex;
-  flex-direction: column;
-  background-color: greenyellow;
-  width: 100%;
-  align-items: center;
+  @apply flex flex-col w-full items-center;
+}
+
+#payButton {
+  @apply bg-green-500 rounded-lg w-1/2 text-3xl font-bold text-white;
 }

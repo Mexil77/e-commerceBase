@@ -13,6 +13,7 @@ const Bag = (props) => {
         modifyCuantity={props.modifyCuantity}
         getUserBag={props.getUserBag}
         updateBagUser={props.updateBagUser}
+        fromPaySteps={props.fromPaySteps}
       />
     </div>
   );
