@@ -9,6 +9,7 @@ export default class Home extends Component {
     return (
       <div id="home-div">
         <h1>Bienvenido a esta e-Commerce</h1>
+        <h3>Aqui te explicare como Que funciones tiene mi pagina.</h3>
         <CarouselProducts
           idProducts={[
             "603fc3b714d9fc49b0f2ab79",
