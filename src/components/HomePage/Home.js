@@ -8,7 +8,8 @@ export default class Home extends Component {
   render() {
     return (
       <div id="home-div">
-        <h1>Baner Carousel</h1>
+        <h1>Bienvenido a esta e-Commerce</h1>
+
         <CarouselProducts
           idProducts={[
             "603fc3b714d9fc49b0f2ab79",
